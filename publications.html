@@ -3,6 +3,17 @@
 <script>
   const ME = "Junseong Pyo";
 
+  const TAGS = {
+    SMART_HOME: "Smart Home",
+    SPEECH:     "Speech",
+    DIALOGUE:   "Dialogue",
+    BENCHMARK:  "Benchmark",
+    EVALUATION: "Evaluation",
+    AGENT:      "Agent",
+    RAG:        "RAG",
+    LLM:        "LLM",
+  };
+
   const CONF = {
     ACL: "Annual Meeting of the Association for Computational Linguistics",
     ICLR: "International Conference on Learning Representations",
@@ -30,6 +41,7 @@
       venue: VENUES.ARR(2026, "March"),
       status: "Under Review",
       year: 2026,
+      tags: [TAGS.SPEECH, TAGS.DIALOGUE, TAGS.BENCHMARK],
       authors: ["Jonggeun Lee*", ME + "*", "Yohan Jo"],
       coFirst: true,
     },
@@ -39,6 +51,7 @@
         "SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency",
       venue: VENUES.ACL(2026, "63rd"),
       year: 2026,
+      tags: [TAGS.SPEECH, TAGS.EVALUATION, TAGS.LLM],
       authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", "Yohan Jo"],
       link: "https://arxiv.org/abs/2601.04029",
     },
@@ -49,6 +62,7 @@
       venue: VENUES.ICLR(2026, "Fourteenth"),
       note: "Oral",
       year: 2026,
+      tags: [TAGS.SMART_HOME, TAGS.AGENT, TAGS.BENCHMARK, TAGS.LLM],
       authors: [
         "Gyuhyeon Seo",
         "Jungwoo Yang",
@@ -66,6 +80,7 @@
         "B. F. Sword: Blank Inference System with Optimized RAG and Knowledge Distillation",
       venue: VENUES.HCI(2025),
       year: 2025,
+      tags: [TAGS.RAG, TAGS.LLM],
       authors: [
         ME,
         "Hyejin Bae",
@@ -95,6 +110,9 @@
 
   function renderPub(p) {
     const venueText = p.track ? `${p.venue}, ${p.track}` : p.venue;
+    const tagsEl = p.tags && p.tags.length
+      ? `<div class="pub-tags">${p.tags.map(t => `<span class="pub-tag">${t}</span>`).join("")}</div>`
+      : "";
     const titleEl = p.link
       ? `<div class="pub-title"><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a></div>`
       : `<div class="pub-title">${p.title}</div>`;
@@ -107,6 +125,7 @@
       ? `<div class="pub-github"><a class="pub-link" href="${p.github}" target="_blank" rel="noopener">GitHub</a></div>`
       : "";
     return `<div class="pub">
+      ${tagsEl}
       ${titleEl}
       <div class="pub-venue">${venueLine}</div>
       <div class="pub-authors">${renderAuthors(p.authors, p.coFirst)}</div>

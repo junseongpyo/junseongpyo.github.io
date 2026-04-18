@@ -15,11 +15,11 @@
       :root {
         /* Font sizes */
         --fs-name: 28px; /* header name */
-        --fs-lg: 16px; /* titles (entry, pub) */
-        --fs-base: 15px; /* body base */
-        --fs-sm: 14px; /* secondary text */
-        --fs-xs: 13px; /* section labels */
-        --fs-xxs: 12px; /* toc, fine print */
+        --fs-lg: 17px; /* titles (entry, pub) */
+        --fs-base: 16px; /* body base */
+        --fs-sm: 15px; /* secondary text */
+        --fs-xs: 14px; /* section labels */
+        --fs-xxs: 13px; /* toc, fine print */
 
         /* Colors */
         --c-text: #222; /* primary text */
@@ -243,7 +243,9 @@
       }
 
       .pub-github {
-        margin-top: 4px;
+        margin-top: 8px;
+        text-decoration: underline;
+        text-decoration-color: var(--c-text-2);
       }
 
       .pub-link {
@@ -255,6 +257,21 @@
 
       .pub-link:hover {
         text-decoration: underline;
+      }
+
+      .pub-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 8px;
+      }
+
+      .pub-tag {
+        font-size: var(--fs-xxs);
+        color: var(--c-text-muted);
+        border: 1px solid var(--c-border);
+        padding: 2px 8px;
+        border-radius: 2px;
       }
 
       .pub-cofirst {
