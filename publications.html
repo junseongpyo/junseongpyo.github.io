@@ -1,0 +1,137 @@
+<div id="pub-root"></div>
+
+<script>
+  const ME = "Junseong Pyo";
+
+  const CONF = {
+    ACL: "Annual Meeting of the Association for Computational Linguistics",
+    ICLR: "International Conference on Learning Representations",
+    ARR: "ACL Rolling Review",
+    HCI: "HCI Korea",
+  };
+
+  const VENUES = {
+    ACL: (year, edition) => `Proceedings of the ${edition} ${CONF.ACL} (ACL)`,
+    ICLR: (year, ordinal) => `The ${ordinal} ${CONF.ICLR} (ICLR)`,
+    ARR: (year, month) => `${CONF.ARR} (ARR), ${month} ${year}`,
+    HCI: (year) => `Proceedings of ${CONF.HCI} ${year}`,
+  };
+
+  // type: "international" | "domestic"
+  // note: accent-colored badge (e.g. "Oral", "Findings")
+  // status: muted-gray badge (e.g. "Under Review")
+  // coFirst: true if ME is co-first author
+  // link: primary paper URL (arXiv, ACL Anthology, etc.)
+  // github: optional GitHub repo URL
+  const PUBLICATIONS = [
+    {
+      type: "international",
+      title: "SpokenUS: A Spoken User Simulator for Task-Oriented Dialogue",
+      venue: VENUES.ARR(2026, "March"),
+      status: "Under Review",
+      year: 2026,
+      authors: ["Jonggeun Lee*", ME + "*", "Yohan Jo"],
+      coFirst: true,
+    },
+    {
+      type: "international",
+      title:
+        "SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency",
+      venue: VENUES.ACL(2026, "63rd"),
+      year: 2026,
+      authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", "Yohan Jo"],
+      link: "https://arxiv.org/abs/2601.04029",
+    },
+    {
+      type: "international",
+      title:
+        "SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents",
+      venue: VENUES.ICLR(2026, "Fourteenth"),
+      note: "Oral",
+      year: 2026,
+      authors: [
+        "Gyuhyeon Seo",
+        "Jungwoo Yang",
+        ME,
+        "Nalim Kim",
+        "Jonggeun Lee",
+        "Yohan Jo",
+      ],
+      link: "https://arxiv.org/abs/2509.24282",
+      github: "https://github.com/holi-lab/SimuHome",
+    },
+    {
+      type: "domestic",
+      title:
+        "B. F. Sword: Blank Inference System with Optimized RAG and Knowledge Distillation",
+      venue: VENUES.HCI(2025),
+      year: 2025,
+      authors: [
+        ME,
+        "Hyejin Bae",
+        "Kitae Kwon",
+        "Jina Kim",
+        "Woojung Song",
+        "Yeonseong Shin",
+      ],
+      link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12131510",
+    },
+  ];
+
+  function renderAuthors(authors, coFirst) {
+    return (
+      authors
+        .map((a) => {
+          const name = a.replace("*", "");
+          const star = a.endsWith("*") ? "*" : "";
+          return name === ME
+            ? `<strong>${name}${star}</strong>`
+            : `${name}${star}`;
+        })
+        .join(", ") +
+      (coFirst ? ' <span class="pub-cofirst">*Co-first authors</span>' : "")
+    );
+  }
+
+  function renderPub(p) {
+    const venueText = p.track ? `${p.venue}, ${p.track}` : p.venue;
+    const titleEl = p.link
+      ? `<div class="pub-title"><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a></div>`
+      : `<div class="pub-title">${p.title}</div>`;
+    let venueLine = `${venueText} &middot; ${p.year}`;
+    if (p.note)   venueLine += ` &middot; <span class="pub-note">${p.note}</span>`;
+    if (p.status) venueLine += ` &middot; <span class="pub-status">${p.status}</span>`;
+    const githubEl = p.github
+      ? `<div class="pub-github"><a class="pub-link" href="${p.github}" target="_blank" rel="noopener">GitHub</a></div>`
+      : "";
+    return `<div class="pub">
+      ${titleEl}
+      <div class="pub-venue">${venueLine}</div>
+      <div class="pub-authors">${renderAuthors(p.authors, p.coFirst)}</div>
+      ${githubEl}
+    </div>`;
+  }
+
+  const PAGE_SIZE = 10;
+
+  function renderVisible(count) {
+    const visible = PUBLICATIONS.slice(0, count);
+    const intl = visible.filter((p) => p.type === "international");
+    const dom = visible.filter((p) => p.type === "domestic");
+
+    let html = "";
+    if (intl.length)
+      html += `<p class="section-title">International</p>${intl.map(renderPub).join("")}`;
+    if (dom.length)
+      html += `<p class="section-title">Domestic</p>${dom.map(renderPub).join("")}`;
+
+    if (count < PUBLICATIONS.length) {
+      const remaining = PUBLICATIONS.length - count;
+      html += `<button class="pub-more" onclick="renderVisible(${PUBLICATIONS.length})">Show more (${remaining})</button>`;
+    }
+
+    document.getElementById("pub-root").innerHTML = html;
+  }
+
+  renderVisible(PAGE_SIZE);
+</script>

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junseong Pyo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"></script>
+    <style>
+      :root {
+        /* Font sizes */
+        --fs-name: 28px; /* header name */
+        --fs-lg: 16px; /* titles (entry, pub) */
+        --fs-base: 15px; /* body base */
+        --fs-sm: 14px; /* secondary text */
+        --fs-xs: 13px; /* section labels */
+        --fs-xxs: 12px; /* toc, fine print */
+
+        /* Colors */
+        --c-text: #222; /* primary text */
+        --c-text-2: #444; /* secondary text */
+        --c-text-3: #555; /* tertiary text */
+        --c-text-muted: #888; /* muted / dates / labels */
+        --c-text-faint: #bbb; /* separators, toc default */
+        --c-border: #ddd; /* borders */
+        --c-border-hover: #aaa; /* border hover */
+        --c-bg: #fff; /* background */
+        --c-accent: #c03221; /* highlight */
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        font-size: var(--fs-base);
+        color: var(--c-text);
+        background: var(--c-bg);
+        padding: 48px 0 160px;
+      }
+
+      /* Layout */
+      .page {
+        display: flex;
+        gap: 48px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .main {
+        width: 880px;
+        flex-shrink: 0;
+      }
+
+      /* Header */
+      header {
+        margin-bottom: 56px;
+      }
+
+      header h1 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: var(--fs-name);
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .contact {
+        font-size: var(--fs-sm);
+        color: var(--c-text-3);
+      }
+
+      .contact a {
+        color: var(--c-text);
+        text-decoration: none;
+      }
+
+      .contact a:hover {
+        text-decoration: underline;
+      }
+
+      .contact span {
+        margin: 0 8px;
+        color: var(--c-text-faint);
+      }
+
+      /* Sections */
+      section + section {
+        margin-top: 56px;
+      }
+
+      /* TOC */
+      .toc {
+        position: sticky;
+        top: 48px;
+        align-self: flex-start;
+        width: 144px;
+        flex-shrink: 0;
+        padding-top: 4px;
+      }
+
+      .toc a {
+        display: block;
+        font-family: "Times New Roman", Times, serif;
+        font-size: var(--fs-xxs);
+        color: var(--c-text-faint);
+        text-decoration: none;
+        padding: 4px 0 4px 12px;
+        border-left: 2px solid transparent;
+        line-height: 1.4;
+        margin-bottom: 4px;
+      }
+
+      .toc a:hover {
+        color: var(--c-text-muted);
+      }
+
+      .toc a.active {
+        color: var(--c-text);
+        border-left-color: var(--c-text);
+        font-weight: 500;
+      }
+
+      /* Shared section styles (used in partials) */
+      .section-title {
+        font-size: var(--fs-xs);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--c-text-muted);
+        border-bottom: 1px solid var(--c-border);
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        margin-top: 40px;
+      }
+
+      .section-title:first-child {
+        margin-top: 0;
+      }
+
+      .entry {
+        margin-bottom: 20px;
+      }
+
+      .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .entry-title {
+        font-weight: 700;
+        font-size: var(--fs-lg);
+      }
+
+      .entry-date {
+        font-size: var(--fs-sm);
+        color: var(--c-text-muted);
+        white-space: nowrap;
+        margin-left: 16px;
+      }
+
+      .entry-subtitle {
+        font-size: var(--fs-sm);
+        color: var(--c-text-3);
+        margin-top: 4px;
+      }
+
+      .entry ul {
+        margin-top: 8px;
+        padding-left: 20px;
+      }
+
+      .entry ul li {
+        font-size: var(--fs-sm);
+        color: var(--c-text-2);
+        margin-bottom: 4px;
+        line-height: 1.5;
+      }
+
+      /* Publications */
+      .pub {
+        margin-bottom: 20px;
+      }
+
+      .pub-title {
+        font-weight: 700;
+        font-size: var(--fs-lg);
+        line-height: 1.4;
+      }
+
+      .pub-title a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .pub-title a:hover {
+        text-decoration: underline;
+      }
+
+      .pub-venue {
+        font-size: var(--fs-sm);
+        color: var(--c-text-3);
+        font-style: italic;
+        margin-top: 4px;
+      }
+
+      .pub-authors {
+        font-size: var(--fs-sm);
+        color: var(--c-text-2);
+        margin-top: 4px;
+      }
+
+      .pub-authors strong {
+        font-weight: 700;
+        color: var(--c-text);
+      }
+
+      .pub-note {
+        font-size: var(--fs-sm);
+        color: var(--c-accent);
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .pub-status {
+        font-size: var(--fs-sm);
+        color: var(--c-text-muted);
+        font-style: normal;
+      }
+
+      .pub-github {
+        margin-top: 4px;
+      }
+
+      .pub-link {
+        font-size: var(--fs-sm);
+        color: var(--c-text);
+        text-decoration: none;
+        font-style: normal;
+      }
+
+      .pub-link:hover {
+        text-decoration: underline;
+      }
+
+      .pub-cofirst {
+        font-size: var(--fs-xxs);
+        color: var(--c-text-muted);
+      }
+
+      .pub-more {
+        margin-top: 8px;
+        background: none;
+        border: 1px solid var(--c-border);
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: var(--fs-sm);
+        color: var(--c-text-3);
+        cursor: pointer;
+      }
+
+      .pub-more:hover {
+        border-color: var(--c-border-hover);
+        color: var(--c-text);
+      }
+
+      .entry-title a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .entry-title a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1080px) {
+        .page {
+          padding: 0 24px;
+        }
+
+        .main {
+          width: 100%;
+          min-width: 0;
+        }
+
+        .toc {
+          display: none;
+        }
+
+        header {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="main">
+        <header>
+          <h1>Junseong Pyo</h1>
+          <div class="contact">
+            <a href="mailto:standardstar@hanyang.ac.kr">Email</a>
+            <span>|</span>
+            <a
+              href="https://www.linkedin.com/in/junseong-pyo/"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            <span>|</span>
+            <a
+              href="https://github.com/standardwish"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+          </div>
+        </header>
+
+        <section id="about">
+          <div hx-get="/about.html" hx-trigger="load" hx-swap="innerHTML"></div>
+        </section>
+
+        <section id="publications">
+          <div
+            hx-get="/publications.html"
+            hx-trigger="load"
+            hx-swap="innerHTML"
+          ></div>
+        </section>
+
+        <section id="research">
+          <div
+            hx-get="/research.html"
+            hx-trigger="load"
+            hx-swap="innerHTML"
+          ></div>
+        </section>
+
+        <section id="work">
+          <div hx-get="/work.html" hx-trigger="load" hx-swap="innerHTML"></div>
+        </section>
+      </div>
+
+      <aside class="toc">
+        <a href="#about" class="active">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#research">Research Experience</a>
+        <a href="#work">Work Experience</a>
+      </aside>
+    </div>
+
+    <script>
+      // ── TOC scroll spy ─────────────────────────────────────────────
+      const tocLinks = document.querySelectorAll(".toc a");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              tocLinks.forEach((a) => a.classList.remove("active"));
+              const active = document.querySelector(
+                `.toc a[href="#${entry.target.id}"]`,
+              );
+              if (active) active.classList.add("active");
+            }
+          });
+        },
+        { rootMargin: "0px 0px -80% 0px" },
+      );
+
+      document
+        .querySelectorAll("section[id]")
+        .forEach((s) => observer.observe(s));
+    </script>
+  </body>
+</html>
