@@ -13,8 +13,8 @@
   const VENUES = {
     ACL: (year, edition) => `Proceedings of the ${edition} ${CONF.ACL} (ACL)`,
     ICLR: (year, ordinal) => `The ${ordinal} ${CONF.ICLR} (ICLR)`,
-    ARR: (year, month) => `${CONF.ARR} (ARR), ${month} ${year}`,
-    HCI: (year) => `Proceedings of ${CONF.HCI} ${year}`,
+    ARR: (year, month) => `${CONF.ARR} (ARR), ${month}`,
+    HCI: (year) => `Proceedings of ${CONF.HCI}`,
   };
 
   // type: "international" | "domestic"
@@ -99,8 +99,10 @@
       ? `<div class="pub-title"><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a></div>`
       : `<div class="pub-title">${p.title}</div>`;
     let venueLine = `${venueText} &middot; ${p.year}`;
-    if (p.note)   venueLine += ` &middot; <span class="pub-note">${p.note}</span>`;
-    if (p.status) venueLine += ` &middot; <span class="pub-status">${p.status}</span>`;
+    if (p.note)
+      venueLine += ` &middot; <span class="pub-note">${p.note}</span>`;
+    if (p.status)
+      venueLine += ` &middot; <span class="pub-status">${p.status}</span>`;
     const githubEl = p.github
       ? `<div class="pub-github"><a class="pub-link" href="${p.github}" target="_blank" rel="noopener">GitHub</a></div>`
       : "";
@@ -112,22 +114,26 @@
     </div>`;
   }
 
-  const PAGE_SIZE = 10;
+  const SORTED = [...PUBLICATIONS].sort((a, b) => b.year - a.year);
+
+  const PAGE_SIZE = 5;
 
   function renderVisible(count) {
-    const visible = PUBLICATIONS.slice(0, count);
+    const visible = SORTED.slice(0, count);
     const intl = visible.filter((p) => p.type === "international");
     const dom = visible.filter((p) => p.type === "domestic");
 
     let html = "";
     if (intl.length)
-      html += `<p class="section-title">International</p>${intl.map(renderPub).join("")}`;
+      html += `<p class="section-title">International Publications</p>${intl.map(renderPub).join("")}`;
     if (dom.length)
-      html += `<p class="section-title">Domestic</p>${dom.map(renderPub).join("")}`;
+      html += `<p class="section-title">Domestic Publications</p>${dom.map(renderPub).join("")}`;
 
-    if (count < PUBLICATIONS.length) {
-      const remaining = PUBLICATIONS.length - count;
-      html += `<button class="pub-more" onclick="renderVisible(${PUBLICATIONS.length})">Show more (${remaining})</button>`;
+    if (count < SORTED.length) {
+      const remaining = SORTED.length - count;
+      html += `<button class="pub-more" onclick="renderVisible(${SORTED.length})">Show more (${remaining})</button>`;
+    } else if (SORTED.length > PAGE_SIZE) {
+      html += `<button class="pub-more" onclick="renderVisible(${PAGE_SIZE})">Show less</button>`;
     }
 
     document.getElementById("pub-root").innerHTML = html;
