@@ -4,14 +4,13 @@
   const ME = "Junseong Pyo";
 
   const TAGS = {
-    SMART_HOME: "Smart Home",
-    SPEECH:     "Speech",
-    DIALOGUE:   "Dialogue",
-    BENCHMARK:  "Benchmark",
-    EVALUATION: "Evaluation",
-    AGENT:      "Agent",
-    RAG:        "RAG",
-    LLM:        "LLM",
+    SMART_HOME: { label: "Smart Home", bg: "#e6f3f0", color: "#1f6b55" },
+    SPEECH:     { label: "Speech",     bg: "#f0ebf8", color: "#6b3a9a" },
+    BENCHMARK:  { label: "Benchmark",  bg: "#fef3e8", color: "#b05a1a" },
+    DATASET:    { label: "Dataset",    bg: "#e8f5f5", color: "#1a7a7a" },
+    AGENT:      { label: "Agent",      bg: "#eaecf8", color: "#3a4a9a" },
+    RAG:        { label: "RAG",        bg: "#fce8f0", color: "#9a2a60" },
+    LLM:        { label: "LLM",        bg: "#e8edf5", color: "#2d5280" },
   };
 
   const CONF = {
@@ -41,7 +40,7 @@
       venue: VENUES.ARR(2026, "March"),
       status: "Under Review",
       year: 2026,
-      tags: [TAGS.SPEECH, TAGS.DIALOGUE, TAGS.BENCHMARK],
+      tags: [TAGS.SPEECH, TAGS.DATASET],
       authors: ["Jonggeun Lee*", ME + "*", "Yohan Jo"],
       coFirst: true,
     },
@@ -51,7 +50,7 @@
         "SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency",
       venue: VENUES.ACL(2026, "63rd"),
       year: 2026,
-      tags: [TAGS.SPEECH, TAGS.EVALUATION, TAGS.LLM],
+      tags: [TAGS.SPEECH, TAGS.BENCHMARK],
       authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", "Yohan Jo"],
       link: "https://arxiv.org/abs/2601.04029",
     },
@@ -110,9 +109,10 @@
 
   function renderPub(p) {
     const venueText = p.track ? `${p.venue}, ${p.track}` : p.venue;
-    const tagsEl = p.tags && p.tags.length
-      ? `<div class="pub-tags">${p.tags.map(t => `<span class="pub-tag">${t}</span>`).join("")}</div>`
-      : "";
+    const tagsEl =
+      p.tags && p.tags.length
+        ? `<div class="pub-tags">${p.tags.map((t) => `<span class="pub-tag" style="background:${t.bg};color:${t.color};border-color:${t.bg}">${t.label}</span>`).join("")}</div>`
+        : "";
     const titleEl = p.link
       ? `<div class="pub-title"><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a></div>`
       : `<div class="pub-title">${p.title}</div>`;
