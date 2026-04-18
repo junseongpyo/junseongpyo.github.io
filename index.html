@@ -194,6 +194,27 @@
       /* Publications */
       .pub {
         margin-bottom: 20px;
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+      }
+
+      .pub-body {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .pub-fig {
+        flex-shrink: 0;
+        width: 220px;
+        height: 148px;
+      }
+
+      .pub-fig img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
       }
 
       .pub-title {
@@ -264,6 +285,7 @@
         flex-wrap: wrap;
         gap: 4px;
         margin-bottom: 8px;
+        text-transform: uppercase;
       }
 
       .pub-tag {
@@ -329,7 +351,13 @@
       <div class="main">
         <header>
           <h1>Junseong Pyo</h1>
-          <div style="font-size: var(--fs-sm); color: var(--c-text-3); margin-bottom: 8px">
+          <div
+            style="
+              font-size: var(--fs-sm);
+              color: var(--c-text-3);
+              margin-bottom: 8px;
+            "
+          >
             M.S. in Data Science, Seoul National University
           </div>
           <div class="contact">

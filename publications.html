@@ -42,6 +42,7 @@
       tags: [TAGS.SPEECH, TAGS.DATASET],
       authors: ["Jonggeun Lee*", ME + "*", "Yohan Jo"],
       coFirst: true,
+      figure: "/figures/spokenus.png",
     },
     {
       type: "international",
@@ -52,6 +53,7 @@
       tags: [TAGS.SPEECH, TAGS.BENCHMARK],
       authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", "Yohan Jo"],
       link: "https://arxiv.org/abs/2601.04029",
+      figure: "/figures/speakersleuth.png",
     },
     {
       type: "international",
@@ -71,6 +73,7 @@
       ],
       link: "https://arxiv.org/abs/2509.24282",
       github: "https://github.com/holi-lab/SimuHome",
+      figure: "/figures/simuhome.png",
     },
     {
       type: "domestic",
@@ -88,6 +91,7 @@
         "Yeonseong Shin",
       ],
       link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12131510",
+      figure: "/figures/bfsword.png",
     },
   ];
 
@@ -123,12 +127,18 @@
     const githubEl = p.github
       ? `<div class="pub-github"><a class="pub-link" href="${p.github}" target="_blank" rel="noopener">GitHub</a></div>`
       : "";
+    const figEl = p.figure
+      ? `<div class="pub-fig"><img src="${p.figure}" alt="${p.title}" loading="lazy"></div>`
+      : "";
     return `<div class="pub">
-      ${tagsEl}
-      ${titleEl}
-      <div class="pub-venue">${venueLine}</div>
-      <div class="pub-authors">${renderAuthors(p.authors, p.coFirst)}</div>
-      ${githubEl}
+      <div class="pub-body">
+        ${tagsEl}
+        ${titleEl}
+        <div class="pub-venue">${venueLine}</div>
+        <div class="pub-authors">${renderAuthors(p.authors, p.coFirst)}</div>
+        ${githubEl}
+      </div>
+      ${figEl}
     </div>`;
   }
 
