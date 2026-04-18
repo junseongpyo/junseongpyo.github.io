@@ -2,14 +2,14 @@
 
 <script>
   const ME = "Junseong Pyo";
+  const PROF = "Yohan Jo";
 
   const TAGS = {
     SMART_HOME: { label: "Smart Home", bg: "#e6f3f0", color: "#1f6b55" },
     SPEECH: { label: "Speech", bg: "#f0ebf8", color: "#6b3a9a" },
     BENCHMARK: { label: "Benchmark", bg: "#fef3e8", color: "#b05a1a" },
     DATASET: { label: "Dataset", bg: "#e8f5f5", color: "#1a7a7a" },
-    RAG: { label: "RAG", bg: "#fce8f0", color: "#9a2a60" },
-    LLM: { label: "LLM", bg: "#e8edf5", color: "#2d5280" },
+    EDUCATION: { label: "Education", bg: "#f3f0e8", color: "#6b5a1a" },
   };
 
   const CONF = {
@@ -40,7 +40,7 @@
       status: "Under Review",
       year: 2026,
       tags: [TAGS.SPEECH, TAGS.DATASET],
-      authors: ["Jonggeun Lee*", ME + "*", "Yohan Jo"],
+      authors: ["Jonggeun Lee*", ME + "*", PROF],
       coFirst: true,
       figure: "/figures/spokenus.png",
     },
@@ -51,7 +51,7 @@
       venue: VENUES.ACL(2026, "63rd"),
       year: 2026,
       tags: [TAGS.SPEECH, TAGS.BENCHMARK],
-      authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", "Yohan Jo"],
+      authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", PROF],
       link: "https://arxiv.org/abs/2601.04029",
       figure: "/figures/speakersleuth.png",
     },
@@ -69,7 +69,7 @@
         ME,
         "Nalim Kim",
         "Jonggeun Lee",
-        "Yohan Jo",
+        PROF,
       ],
       link: "https://arxiv.org/abs/2509.24282",
       github: "https://github.com/holi-lab/SimuHome",
@@ -81,7 +81,7 @@
         "B. F. Sword: Blank Inference System with Optimized RAG and Knowledge Distillation",
       venue: VENUES.HCI(2025),
       year: 2025,
-      tags: [TAGS.RAG, TAGS.LLM],
+      tags: [TAGS.EDUCATION],
       authors: [
         ME,
         "Hyejin Bae",
@@ -91,7 +91,7 @@
         "Yeonseong Shin",
       ],
       link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12131510",
-      figure: "/figures/bfsword.png",
+      // figure: "/figures/bfsword.png",
     },
   ];
 

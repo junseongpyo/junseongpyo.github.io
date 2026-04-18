@@ -1,0 +1,84 @@
+<div id="misc-root"></div>
+
+<script>
+  const AWARDS = [
+    {
+      title: "Student Achievement Award",
+      subtitle: "86th Anniversary",
+      organizer: "President, Hanyang University",
+      year: 2025,
+    },
+    {
+      title: "First Prize, Engineering Competition",
+      subtitle: "2nd Place",
+      organizer: "Dean of Engineering, Hanyang University",
+      year: 2025,
+    },
+    {
+      title: "IC-PBL Contest",
+      subtitle: "2nd Place · LLM smart home system",
+      organizer: "LG Electronics",
+      year: 2024,
+    },
+    {
+      title: "2024 DIVE",
+      subtitle: '3rd Place · "Korail Donghae" LLM app',
+      organizer: "Mayor, Busan Metropolitan City",
+      year: 2024,
+    },
+    {
+      title: "Encouragement Prize, Global Innovator Festa (GIF)",
+      subtitle: "4th Place · ML-based timetable platform",
+      organizer: "Mayor, Daegu Metropolitan City",
+      year: 2023,
+    },
+  ];
+
+  const PATENTS = [
+    {
+      title: "English Problem Creation System Using Multi-Agents",
+      appNo: "10-2024-0109541",
+      filed: "August 16, 2024",
+    },
+  ];
+
+  const SKILLS = {
+    Programming: ["Python", "C/C++", "TypeScript"],
+    Languages: ["Korean (native)", "English (fluent)"],
+  };
+
+  function renderEntry(title, date, subtitle) {
+    return `<div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">${title}</span>
+        <span class="entry-date">${date}</span>
+      </div>
+      <div class="entry-subtitle">${subtitle}</div>
+    </div>`;
+  }
+
+  let html = "";
+
+  html += `<p class="section-title">Awards &amp; Patents</p>`;
+  html += AWARDS.map((a) =>
+    renderEntry(a.title, a.year, `${a.subtitle} &middot; ${a.organizer}`),
+  ).join("");
+  html += PATENTS.map((p) =>
+    renderEntry(
+      p.title,
+      p.filed.split(" ").pop(),
+      `Patent &middot; App. No: ${p.appNo} &middot; Filed: ${p.filed}`,
+    ),
+  ).join("");
+
+  html += `<p class="section-title">Skills</p><div class="entry">`;
+  html += Object.entries(SKILLS)
+    .map(
+      ([key, vals]) =>
+        `<div style="margin-bottom: 8px; font-size: var(--fs-sm); color: var(--c-text-2);"><strong style="color: var(--c-text);">${key}:</strong> ${vals.join(" &middot; ")}</div>`,
+    )
+    .join("");
+  html += `</div>`;
+
+  document.getElementById("misc-root").innerHTML = html;
+</script>
