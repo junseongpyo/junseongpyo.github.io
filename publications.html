@@ -5,12 +5,11 @@
 
   const TAGS = {
     SMART_HOME: { label: "Smart Home", bg: "#e6f3f0", color: "#1f6b55" },
-    SPEECH:     { label: "Speech",     bg: "#f0ebf8", color: "#6b3a9a" },
-    BENCHMARK:  { label: "Benchmark",  bg: "#fef3e8", color: "#b05a1a" },
-    DATASET:    { label: "Dataset",    bg: "#e8f5f5", color: "#1a7a7a" },
-    AGENT:      { label: "Agent",      bg: "#eaecf8", color: "#3a4a9a" },
-    RAG:        { label: "RAG",        bg: "#fce8f0", color: "#9a2a60" },
-    LLM:        { label: "LLM",        bg: "#e8edf5", color: "#2d5280" },
+    SPEECH: { label: "Speech", bg: "#f0ebf8", color: "#6b3a9a" },
+    BENCHMARK: { label: "Benchmark", bg: "#fef3e8", color: "#b05a1a" },
+    DATASET: { label: "Dataset", bg: "#e8f5f5", color: "#1a7a7a" },
+    RAG: { label: "RAG", bg: "#fce8f0", color: "#9a2a60" },
+    LLM: { label: "LLM", bg: "#e8edf5", color: "#2d5280" },
   };
 
   const CONF = {
@@ -61,7 +60,7 @@
       venue: VENUES.ICLR(2026, "Fourteenth"),
       note: "Oral",
       year: 2026,
-      tags: [TAGS.SMART_HOME, TAGS.AGENT, TAGS.BENCHMARK, TAGS.LLM],
+      tags: [TAGS.SMART_HOME, TAGS.BENCHMARK],
       authors: [
         "Gyuhyeon Seo",
         "Jungwoo Yang",
@@ -111,7 +110,7 @@
     const venueText = p.track ? `${p.venue}, ${p.track}` : p.venue;
     const tagsEl =
       p.tags && p.tags.length
-        ? `<div class="pub-tags">${p.tags.map((t) => `<span class="pub-tag" style="background:${t.bg};color:${t.color};border-color:${t.bg}">${t.label}</span>`).join("")}</div>`
+        ? `<div class="pub-tags">${p.tags.map((t) => `<span class="pub-tag" style="color:${t.color};border-color:${t.color}">${t.label}</span>`).join("")}</div>`
         : "";
     const titleEl = p.link
       ? `<div class="pub-title"><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a></div>`
