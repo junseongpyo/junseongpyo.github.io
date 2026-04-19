@@ -8,6 +8,7 @@ Built with plain HTML/CSS and [htmx](https://htmx.org/) for partial loading.
 
 ```
 index.html        # Layout, styles, TOC, publications data
+styles.css        # Shared site styles
 about.html        # About, Education
 publications.html # Publications (data-driven, JS)
 research.html     # Research Experience

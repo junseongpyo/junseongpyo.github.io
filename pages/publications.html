@@ -20,10 +20,10 @@
   };
 
   const VENUES = {
-    ACL: (year, edition) => `Proceedings of the ${edition} ${CONF.ACL} (ACL)`,
-    ICLR: (year, ordinal) => `The ${ordinal} ${CONF.ICLR} (ICLR)`,
-    ARR: (year, month) => `${CONF.ARR} (ARR), ${month}`,
-    HCI: (year) => `Proceedings of ${CONF.HCI}`,
+    ACL: (year, edition) => ({ abbr: "ACL", name: `Proceedings of the ${edition} ${CONF.ACL}` }),
+    ICLR: (year, ordinal) => ({ abbr: "ICLR", name: `The ${ordinal} ${CONF.ICLR}` }),
+    ARR: (year, month) => ({ abbr: "ARR", name: `${CONF.ARR}, ${month}` }),
+    HCI: (year) => ({ abbr: "HCI Korea", name: `Proceedings of ${CONF.HCI}` }),
   };
 
   // type: "international" | "domestic"
@@ -49,7 +49,7 @@
       type: "international",
       title:
         "SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency",
-      venue: VENUES.ACL(2026, "63rd"),
+      venue: VENUES.ACL(2026, "64th"),
       year: 2026,
       tags: [TAGS.SPEECH, TAGS.BENCHMARK],
       authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", PROF],
@@ -112,22 +112,29 @@
     );
   }
 
+  function pubLink(href, text) {
+    return `<a class="pub-link" href="${href}">${text}</a>`;
+  }
+
   function renderPub(p) {
-    const venueText = p.track ? `${p.venue}, ${p.track}` : p.venue;
+    const venue = p.venue;
+    const abbr = venue.abbr || "";
+    const noteSuffix = p.note ? ` (${p.note})` : "";
+    const venueFull = p.track ? `${venue.name}, ${p.track}${noteSuffix}` : `${venue.name}${noteSuffix}`;
     const tagsEl =
       p.tags && p.tags.length
         ? `<div class="pub-tags">${p.tags.map((t) => `<span class="pub-tag" style="color:${t.color};border-color:${t.color}">${t.label}</span>`).join("")}</div>`
         : "";
-    const titleEl = p.link
-      ? `<div class="pub-title"><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a></div>`
-      : `<div class="pub-title">${p.title}</div>`;
-    let venueLine = `${venueText} &middot; ${p.year}`;
-    if (p.note)
-      venueLine += ` &middot; <span class="pub-note">${p.note}</span>`;
+    const titleEl = `<div class="pub-title">${p.title}</div>`;
+    let venueLine = `<span class="pub-abbr">[${abbr}]</span> ${venueFull}, ${p.year}`;
     if (p.status)
       venueLine += ` &middot; <span class="pub-status">${p.status}</span>`;
-    const githubEl = p.github
-      ? `<div class="pub-github"><a class="pub-link" href="${p.github}" target="_blank" rel="noopener">GitHub</a></div>`
+    const footnoteLinks = [
+      p.link ? pubLink(p.link, "arXiv") : "",
+      p.github ? pubLink(p.github, "GitHub") : "",
+    ].filter(Boolean);
+    const githubEl = footnoteLinks.length
+      ? `<div class="pub-github">${footnoteLinks.join('<span class="pub-sep">&middot;</span>')}</div>`
       : "";
     const figEl = p.figure
       ? `<div class="pub-fig"><img src="${p.figure}" alt="${p.title}" loading="lazy"></div>`
