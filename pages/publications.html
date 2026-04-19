@@ -20,8 +20,14 @@
   };
 
   const VENUES = {
-    ACL: (year, edition) => ({ abbr: "ACL", name: `Proceedings of the ${edition} ${CONF.ACL}` }),
-    ICLR: (year, ordinal) => ({ abbr: "ICLR", name: `The ${ordinal} ${CONF.ICLR}` }),
+    ACL: (year, edition) => ({
+      abbr: "ACL",
+      name: `Proceedings of the ${edition} ${CONF.ACL}`,
+    }),
+    ICLR: (year, ordinal) => ({
+      abbr: "ICLR",
+      name: `The ${ordinal} ${CONF.ICLR}`,
+    }),
     ARR: (year, month) => ({ abbr: "ARR", name: `${CONF.ARR}, ${month}` }),
     HCI: (year) => ({ abbr: "HCI Korea", name: `Proceedings of ${CONF.HCI}` }),
   };
@@ -42,6 +48,7 @@
       tags: [TAGS.SPEECH, TAGS.DATASET],
       authors: ["Jonggeun Lee*", ME + "*", "Jeongmin Park", PROF],
       link: "https://arxiv.org/abs/2603.16783",
+      github: "https://github.com/holi-lab/SpokenTOD",
       coFirst: true,
       figure: "/figures/spokenus.png",
     },
@@ -120,7 +127,9 @@
     const venue = p.venue;
     const abbr = venue.abbr || "";
     const noteSuffix = p.note ? ` (${p.note})` : "";
-    const venueFull = p.track ? `${venue.name}, ${p.track}${noteSuffix}` : `${venue.name}${noteSuffix}`;
+    const venueFull = p.track
+      ? `${venue.name}, ${p.track}${noteSuffix}`
+      : `${venue.name}${noteSuffix}`;
     const tagsEl =
       p.tags && p.tags.length
         ? `<div class="pub-tags">${p.tags.map((t) => `<span class="pub-tag" style="color:${t.color};border-color:${t.color}">${t.label}</span>`).join("")}</div>`
