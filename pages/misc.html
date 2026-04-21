@@ -16,6 +16,7 @@
       title: "FORIF OFFICIAL",
       period: "2024.01 – 2025.12",
       subtitle: "Lead &middot; Design &middot; Frontend Development",
+      github: "https://github.com/forif-npo/forif-official",
       link: "https://forif.org/",
       bullets: [
         "Club administration platform for Hanyang University programming club",
@@ -97,13 +98,22 @@
       .filter(Boolean)
       .join('<span class="pub-sep">&middot;</span>');
     const allLinks = [
-      p.link ? `<a class="pub-link" href="${p.link}" target="_blank" rel="noopener noreferrer">Website</a>` : "",
-      p.github ? `<a class="pub-link" href="${p.github}" target="_blank" rel="noopener noreferrer">GitHub</a>` : "",
-      p.video ? `<a class="pub-link" href="${p.video}" target="_blank" rel="noopener noreferrer">Video</a>` : "",
-    ].filter(Boolean).join('<span class="pub-sep">&middot;</span>');
-    const bulletsEl = p.bullets && p.bullets.length
-      ? `<ul>${p.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
-      : "";
+      p.link
+        ? `<a class="pub-link" href="${p.link}" target="_blank" rel="noopener noreferrer">Website</a>`
+        : "",
+      p.github
+        ? `<a class="pub-link" href="${p.github}" target="_blank" rel="noopener noreferrer">GitHub</a>`
+        : "",
+      p.video
+        ? `<a class="pub-link" href="${p.video}" target="_blank" rel="noopener noreferrer">Video</a>`
+        : "",
+    ]
+      .filter(Boolean)
+      .join('<span class="pub-sep">&middot;</span>');
+    const bulletsEl =
+      p.bullets && p.bullets.length
+        ? `<ul>${p.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
+        : "";
     return `<div class="entry">
       <div class="entry-header">
         <span class="entry-title">${p.title}</span>
