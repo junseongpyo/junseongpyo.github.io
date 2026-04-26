@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ description or title }}" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{{ title }} | Junseong Pyo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <main class="main">
+        <article class="post">
+          <a class="post-back" href="/blog/">Back to Blog</a>
+
+          <p class="post-meta">
+            <time datetime="{{ date | htmlDateString }}">
+              {{ date | readableDate }}
+            </time>
+          </p>
+
+          {%- if tags and tags.length %}
+            <div class="pub-tags post-tags">
+              {%- for tag in tags %}
+                <span class="pub-tag {{ tag | tagColorClass }}">{{ tag }}</span>
+              {%- endfor %}
+            </div>
+          {%- endif %}
+
+          <h1 class="post-title">{{ title }}</h1>
+
+          {{ content | safe }}
+        </article>
+      </main>
+
+      <aside class="toc post-toc">
+        {%- if toc and toc.length %}
+          <p class="toc-heading toc-title">{{ title }}</p>
+          {%- for item in toc %}
+            <a href="#{{ item.id }}" class="toc-level-{{ item.level }}">
+              {{ item.text }}
+            </a>
+          {%- endfor %}
+        {%- endif %}
+      </aside>
+    </div>
+  </body>
+</html>

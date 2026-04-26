@@ -12,6 +12,8 @@
 # Node
 node_modules/
 npm-debug.log*
+_site/
+.playwright-mcp/
 
 # Misc
 Thumbs.db
