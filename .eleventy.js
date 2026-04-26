@@ -28,6 +28,7 @@ function isImageOnlyParagraph(tokens, idx) {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.svg");
+  eleventyConfig.addPassthroughCopy(".nojekyll");
   eleventyConfig.addPassthroughCopy("figures");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("pages");
