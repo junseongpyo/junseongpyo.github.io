@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("figures");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("pages");
+  eleventyConfig.addPassthroughCopy("profile_image.png");
   eleventyConfig.addPassthroughCopy({ "posts/*.png": "blog" });
   eleventyConfig.addPassthroughCopy({ "posts/*.jpg": "blog" });
   eleventyConfig.addPassthroughCopy({ "posts/*.jpeg": "blog" });
