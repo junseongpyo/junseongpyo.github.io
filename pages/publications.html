@@ -16,6 +16,7 @@
   const CONF = {
     ACL: "Annual Meeting of the Association for Computational Linguistics",
     ICLR: "International Conference on Learning Representations",
+    EMNLP: "Conference on Empirical Methods in Natural Language Processing",
     ARR: "ACL Rolling Review",
     HCI: "HCI Korea",
   };
@@ -24,6 +25,10 @@
     ACL: (year, edition) => ({
       abbr: "ACL",
       name: `Proceedings of the ${edition} ${CONF.ACL}`,
+    }),
+    EMNLP: (year, edition) => ({
+      abbr: "EMNLP",
+      name: `Proceedings of the ${edition} ${CONF.EMNLP}`,
     }),
     ICLR: (year, ordinal) => ({
       abbr: "ICLR",
@@ -43,8 +48,7 @@
     {
       type: "international",
       title: "SpokenUS: A Spoken User Simulator for Task-Oriented Dialogue",
-      venue: VENUES.ARR(2026, "March"),
-      status: "Under Review",
+      venue: VENUES.EMNLP(2026, "2026"),
       year: 2026,
       tags: [TAGS.SPEECH, TAGS.DATASET, TAGS.MODEL],
       authors: ["Jonggeun Lee*", ME + "*", "Jeongmin Park", PROF],
