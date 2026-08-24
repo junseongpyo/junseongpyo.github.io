@@ -64,7 +64,7 @@
       venue: VENUES.ACL(2026, "64th"),
       year: 2026,
       tags: [TAGS.SPEECH, TAGS.BENCHMARK],
-      authors: ["Jonggeun Lee", ME, "Gyuhyeon Seo", PROF],
+      authors: ["Jonggeun Lee*", ME, "Gyuhyeon Seo", PROF],
       link: "https://arxiv.org/abs/2601.04029",
       github: "https://github.com/holi-lab/SpeakerSleuth",
       figure: "/figures/speakersleuth.png",
@@ -78,7 +78,7 @@
       year: 2026,
       tags: [TAGS.SMART_HOME, TAGS.BENCHMARK],
       authors: [
-        "Gyuhyeon Seo",
+        "Gyuhyeon Seo*",
         "Jungwoo Yang",
         ME,
         "Nalim Kim",
@@ -97,7 +97,7 @@
       year: 2025,
       tags: [TAGS.EDUCATION],
       authors: [
-        ME,
+        ME + "*",
         "Hyejin Bae",
         "Kitae Kwon",
         "Jina Kim",
@@ -105,6 +105,7 @@
         "Yeonseong Shin",
       ],
       link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12131510",
+      linkLabel: "DBpia",
       // figure: "/figures/bfsword.png",
     },
   ];
@@ -144,8 +145,8 @@
     if (p.status)
       venueLine += ` &middot; <span class="pub-status">${p.status}</span>`;
     const footnoteLinks = [
-      p.link ? pubLink(p.link, "arXiv") : "",
-      p.github ? pubLink(p.github, "GitHub") : "",
+      p.link ? pubLink(p.link, p.linkLabel || "arXiv") : "",
+      p.github ? pubLink(p.github, p.githubLabel || "GitHub") : "",
     ].filter(Boolean);
     const githubEl = footnoteLinks.length
       ? `<div class="pub-github">${footnoteLinks.join('<span class="pub-sep">&middot;</span>')}</div>`
