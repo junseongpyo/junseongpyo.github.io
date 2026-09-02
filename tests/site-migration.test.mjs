@@ -393,3 +393,15 @@ test("Pages CMS exposes every editable data domain", () => {
   const site = config.content.find(({ name }) => name === "site");
   assert.equal(fieldAt(site.fields, "profile.src").options.media, "profile");
 });
+
+test("the unlinked admin route opens the hosted repository editor", () => {
+  execFileSync("npm", ["run", "build"], { cwd: root, stdio: "pipe" });
+  const admin = readFileSync(fromRoot("_site/admin/index.html"), "utf8");
+  const home = readFileSync(fromRoot("_site/index.html"), "utf8");
+  const cmsUrl =
+    "https://app.pagescms.org/junseongpyo/junseongpyo.github.io/main";
+
+  assert.match(admin, new RegExp(cmsUrl.replaceAll(".", "\\.")));
+  assert.match(admin, /http-equiv=["']refresh["']/i);
+  assert.doesNotMatch(home, /href=["']\/admin\/?["']/);
+});
