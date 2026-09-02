@@ -13,7 +13,7 @@
           </div>
         {% endif %}
 
-        <div class="pub-title">{{ publication.title | escape }}</div>
+        <div class="pub-title"><a href="{{ publication.links[0].url | escape }}">{{ publication.title | escape }}</a></div>
         <div class="pub-venue">
           <span class="pub-abbr">[{{ publication.venueAbbreviation | escape }}]</span>
           {{ publication.venueName | escape }}{% if publication.track %}, {{ publication.track | escape }}{% endif %}{% if publication.note %} ({{ publication.note | escape }}){% endif %}, {{ publication.year }}{% if publication.status %} · <span class="pub-status">{{ publication.status | escape }}</span>{% endif %}
@@ -55,7 +55,7 @@
           </div>
         {% endif %}
 
-        <div class="pub-title">{{ publication.title | escape }}</div>
+        <div class="pub-title"><a href="{{ publication.links[0].url | escape }}">{{ publication.title | escape }}</a></div>
         <div class="pub-venue">
           <span class="pub-abbr">[{{ publication.venueAbbreviation | escape }}]</span>
           {{ publication.venueName | escape }}{% if publication.track %}, {{ publication.track | escape }}{% endif %}{% if publication.note %} ({{ publication.note | escape }}){% endif %}, {{ publication.year }}{% if publication.status %} · <span class="pub-status">{{ publication.status | escape }}</span>{% endif %}

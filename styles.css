@@ -262,6 +262,7 @@ section + section {
 .pub-title a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .pub-title a:hover {

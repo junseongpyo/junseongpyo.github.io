@@ -99,6 +99,31 @@ test("Eleventy pre-renders all CMS-managed homepage content", () => {
   assert.ok(html.indexOf("SpokenUS:") < html.indexOf("SimuHome:"));
 });
 
+test("each publication title links to its primary paper page", () => {
+  execFileSync("npm", ["run", "build"], { cwd: root, stdio: "pipe" });
+  const html = readFileSync(fromRoot("_site/index.html"), "utf8");
+  const publications = readJson("_data/publications.json");
+
+  for (const publication of publications.items) {
+    const [primaryLink] = publication.links;
+    const escapedTitle = publication.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const escapedUrl = primaryLink.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    assert.match(
+      html,
+      new RegExp(
+        `<div class=["']pub-title["']>\\s*<a[^>]+href=["']${escapedUrl}["'][^>]*>${escapedTitle}<\\/a>\\s*<\\/div>`,
+      ),
+    );
+  }
+});
+
+test("publication title links use the standard hover underline and pointer cursor", () => {
+  const css = readFileSync(fromRoot("styles.css"), "utf8");
+
+  assert.match(css, /\.pub-title a:hover\s*\{\s*text-decoration:\s*underline;/);
+  assert.match(css, /\.pub-title a\s*\{[^}]*cursor:\s*pointer;/);
+});
+
 test("Pages CMS exposes every editable data domain", () => {
   const config = parseYaml(readFileSync(fromRoot(".pages.yml"), "utf8"));
   assert.deepEqual(
