@@ -405,3 +405,32 @@ test("the unlinked admin route opens the hosted repository editor", () => {
   assert.match(admin, /http-equiv=["']refresh["']/i);
   assert.doesNotMatch(home, /href=["']\/admin\/?["']/);
 });
+
+test("blog and fragment implementation are completely removed", () => {
+  for (const path of [
+    "blog",
+    "posts",
+    "pages",
+    "scripts/new-post.mjs",
+    "_includes/layouts/blog-base.njk",
+    "_includes/layouts/post.njk",
+    "_includes/lib/toc.js",
+  ]) {
+    assert.equal(existsSync(fromRoot(path)), false, path);
+  }
+
+  const packageJson = readJson("package.json");
+  assert.equal("new-post" in packageJson.scripts, false);
+
+  const config = readFileSync(fromRoot(".eleventy.js"), "utf8");
+  assert.doesNotMatch(
+    config,
+    /posts|MarkdownIt|readableDate|groupPostsByGroup/,
+  );
+
+  const css = readFileSync(fromRoot("styles.css"), "utf8");
+  assert.doesNotMatch(css, /\.post(?:-|\s|\{|\.)/);
+
+  const readme = readFileSync(fromRoot("README.md"), "utf8");
+  assert.doesNotMatch(readme, /blog|new-post/i);
+});
