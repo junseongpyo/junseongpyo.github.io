@@ -1,0 +1,504 @@
+media:
+  - name: profile
+    label: Profile image
+    input: .
+    output: /
+    categories: [image]
+    extensions: [png, jpg, jpeg, webp, avif]
+  - name: figures
+    label: Publication figures
+    input: figures
+    output: /figures
+    categories: [image]
+    extensions: [png, jpg, jpeg, webp, avif, svg]
+
+settings:
+  content:
+    merge: false
+
+content:
+  - name: site
+    label: Site settings
+    type: file
+    path: _data/site.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: subtitle
+        label: Subtitle
+        type: text
+        required: true
+      - name: description
+        label: Meta description
+        type: text
+        required: true
+      - name: profile
+        label: Profile
+        type: object
+        required: true
+        fields:
+          - name: src
+            label: Image
+            type: image
+            required: true
+            options:
+              media: profile
+          - name: alt
+            label: Alternative text
+            type: string
+            required: true
+      - name: contacts
+        label: Contact links
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Label
+            type: string
+            required: true
+          - name: url
+            label: URL
+            type: string
+            required: true
+
+  - name: about
+    label: About
+    type: file
+    path: _data/about.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+        required: true
+      - name: introductionHtml
+        label: Introduction
+        type: rich-text
+        required: true
+        options:
+          format: html
+          media: false
+      - name: topics
+        label: Research topics
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: body
+            label: Description
+            type: text
+            required: true
+      - name: closing
+        label: Closing text
+        type: text
+        required: true
+
+  - name: publications
+    label: Publications
+    type: file
+    path: _data/publications.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - name: heading
+        label: Section name
+        type: string
+        required: true
+      - name: internationalHeading
+        label: International heading
+        type: string
+        required: true
+      - name: domesticHeading
+        label: Domestic heading
+        type: string
+        required: true
+      - name: items
+        label: Publications
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: category
+            label: Category
+            type: select
+            required: true
+            options:
+              values: [international, domestic]
+          - name: title
+            label: Title
+            type: text
+            required: true
+          - name: venueAbbreviation
+            label: Venue abbreviation
+            type: string
+            required: true
+          - name: venueName
+            label: Venue name
+            type: text
+            required: true
+          - name: year
+            label: Year
+            type: number
+            required: true
+          - name: track
+            label: Track
+            type: string
+          - name: note
+            label: Note
+            type: string
+          - name: status
+            label: Status
+            type: string
+          - name: showEqualContributionNote
+            label: Show co-first authors note
+            type: boolean
+            required: true
+            default: false
+          - name: authors
+            label: Authors
+            type: object
+            required: true
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: true
+              - name: owner
+                label: Highlight as site owner
+                type: boolean
+                required: true
+                default: false
+              - name: equalContribution
+                label: Equal contribution marker
+                type: boolean
+                required: true
+                default: false
+          - name: tags
+            label: Tags
+            type: select
+            required: true
+            options:
+              multiple: true
+              values:
+                - Smart Home
+                - Speech
+                - Benchmark
+                - Model
+                - Dataset
+                - Education
+          - name: links
+            label: Links
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: url
+                label: URL
+                type: string
+                required: true
+          - name: figure
+            label: Figure
+            type: image
+            options:
+              media: figures
+
+  - name: research
+    label: Research and education
+    type: file
+    path: _data/research.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - name: experienceHeading
+        label: Research heading
+        type: string
+        required: true
+      - name: experiences
+        label: Research experience
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{organization} — {period}"
+        fields:
+          - name: organization
+            label: Organization
+            type: string
+            required: true
+          - name: organizationUrl
+            label: Organization URL
+            type: string
+          - name: period
+            label: Period
+            type: string
+            required: true
+          - name: role
+            label: Role
+            type: string
+            required: true
+          - name: location
+            label: Location
+            type: string
+            required: true
+          - name: highlights
+            label: Highlights
+            type: string
+            list: true
+      - name: educationHeading
+        label: Education heading
+        type: string
+        required: true
+      - name: education
+        label: Education
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{institution} — {period}"
+        fields:
+          - name: institution
+            label: Institution
+            type: string
+            required: true
+          - name: institutionUrl
+            label: Institution URL
+            type: string
+          - name: period
+            label: Period
+            type: string
+            required: true
+          - name: degree
+            label: Degree
+            type: text
+            required: true
+          - name: location
+            label: Location
+            type: string
+            required: true
+          - name: details
+            label: Details
+            type: string
+            list: true
+
+  - name: work
+    label: Work experience
+    type: file
+    path: _data/work.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+        required: true
+      - name: entries
+        label: Positions
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{organization} — {period}"
+        fields:
+          - name: organization
+            label: Organization
+            type: string
+            required: true
+          - name: organizationUrl
+            label: Organization URL
+            type: string
+          - name: team
+            label: Team
+            type: string
+          - name: period
+            label: Period
+            type: string
+            required: true
+          - name: role
+            label: Role
+            type: string
+            required: true
+          - name: location
+            label: Location
+            type: string
+            required: true
+          - name: highlights
+            label: Highlights
+            type: string
+            list: true
+
+  - name: misc
+    label: Projects, awards, patents, and skills
+    type: file
+    path: _data/misc.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - name: projectsHeading
+        label: Projects heading
+        type: string
+        required: true
+      - name: projects
+        label: Projects
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} — {period}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: period
+            label: Period
+            type: string
+            required: true
+          - name: subtitle
+            label: Subtitle
+            type: text
+            required: true
+          - name: highlights
+            label: Highlights
+            type: string
+            list: true
+          - name: links
+            label: Links
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: url
+                label: URL
+                type: string
+                required: true
+      - name: awardsHeading
+        label: Awards heading
+        type: string
+        required: true
+      - name: awards
+        label: Awards
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} — {year}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: subtitle
+            label: Subtitle
+            type: text
+            required: true
+          - name: organizer
+            label: Organizer
+            type: string
+            required: true
+          - name: year
+            label: Year
+            type: number
+            required: true
+      - name: patentsHeading
+        label: Patents heading
+        type: string
+        required: true
+      - name: patents
+        label: Patents
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} — {year}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: applicationNumber
+            label: Application number
+            type: string
+            required: true
+          - name: filed
+            label: Filed date
+            type: string
+            required: true
+          - name: year
+            label: Display year
+            type: number
+            required: true
+      - name: skillsHeading
+        label: Skills heading
+        type: string
+        required: true
+      - name: skillGroups
+        label: Skill groups
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Label
+            type: string
+            required: true
+          - name: values
+            label: Values
+            type: string
+            required: true
+            list: true

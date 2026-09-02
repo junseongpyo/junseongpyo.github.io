@@ -9,6 +9,7 @@
     "test": "node --test"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "yaml": "^2.9.0"
   }
 }
