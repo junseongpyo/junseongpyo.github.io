@@ -1,0 +1,46 @@
+{
+  "experienceHeading": "Research Experience",
+  "experiences": [
+    {
+      "organization": "Seoul National University — HOLI Lab",
+      "organizationUrl": "",
+      "period": "Sep 2026 – Current",
+      "role": "Ph.D. Student",
+      "location": "Seoul, South Korea",
+      "highlights": [
+        "Developed Physical–API Interaction Environment for Robots"
+      ]
+    },
+    {
+      "organization": "Seoul National University — HOLI Lab",
+      "organizationUrl": "",
+      "period": "Jul 2025 – Aug 2026",
+      "role": "Undergraduate Research Assistant",
+      "location": "Seoul, South Korea",
+      "highlights": [
+        "Developed benchmarks for smart home agent evaluation and training",
+        "Researched voice user simulators in task-oriented dialogue (TOD)",
+        "Built a dataset for paper discovery agents"
+      ]
+    }
+  ],
+  "educationHeading": "Education",
+  "education": [
+    {
+      "institution": "Seoul National University",
+      "institutionUrl": "",
+      "period": "Enrolled: Sep 2026",
+      "degree": "Ph.D. Student, Department of Data Science, Graduate School of Data Science",
+      "location": "Seoul, South Korea",
+      "details": ["Overall GPA: - / 4.3"]
+    },
+    {
+      "institution": "Hanyang University",
+      "institutionUrl": "",
+      "period": "Mar 2023 – Aug 2026",
+      "degree": "B.I.S., Department of Information Systems",
+      "location": "Seoul, South Korea",
+      "details": ["Overall GPA: 4.19 / 4.5 · Major GPA: 4.18 / 4.5"]
+    }
+  ]
+}

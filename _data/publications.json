@@ -1,0 +1,102 @@
+{
+  "heading": "Publications",
+  "internationalHeading": "International Publications",
+  "domesticHeading": "Domestic Publications",
+  "items": [
+    {
+      "category": "international",
+      "title": "SpokenUS: A Spoken User Simulator for Task-Oriented Dialogue",
+      "venueAbbreviation": "EMNLP",
+      "venueName": "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing",
+      "year": 2026,
+      "track": "",
+      "note": "",
+      "status": "",
+      "showEqualContributionNote": true,
+      "authors": [
+        { "name": "Jonggeun Lee", "owner": false, "equalContribution": true },
+        { "name": "Junseong Pyo", "owner": true, "equalContribution": true },
+        { "name": "Jeongmin Park", "owner": false, "equalContribution": false },
+        { "name": "Yohan Jo", "owner": false, "equalContribution": false }
+      ],
+      "tags": ["Speech", "Dataset", "Model"],
+      "links": [
+        { "label": "arXiv", "url": "https://arxiv.org/abs/2603.16783" },
+        { "label": "GitHub", "url": "https://github.com/holi-lab/SpokenTOD" }
+      ],
+      "figure": "/figures/spokenus.png"
+    },
+    {
+      "category": "international",
+      "title": "SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency",
+      "venueAbbreviation": "ACL",
+      "venueName": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics",
+      "year": 2026,
+      "track": "",
+      "note": "",
+      "status": "",
+      "showEqualContributionNote": false,
+      "authors": [
+        { "name": "Jonggeun Lee", "owner": false, "equalContribution": true },
+        { "name": "Junseong Pyo", "owner": true, "equalContribution": false },
+        { "name": "Gyuhyeon Seo", "owner": false, "equalContribution": false },
+        { "name": "Yohan Jo", "owner": false, "equalContribution": false }
+      ],
+      "tags": ["Speech", "Benchmark"],
+      "links": [
+        { "label": "arXiv", "url": "https://arxiv.org/abs/2601.04029" },
+        { "label": "GitHub", "url": "https://github.com/holi-lab/SpeakerSleuth" }
+      ],
+      "figure": "/figures/speakersleuth.png"
+    },
+    {
+      "category": "international",
+      "title": "SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents",
+      "venueAbbreviation": "ICLR",
+      "venueName": "The Fourteenth International Conference on Learning Representations",
+      "year": 2026,
+      "track": "",
+      "note": "Oral",
+      "status": "",
+      "showEqualContributionNote": false,
+      "authors": [
+        { "name": "Gyuhyeon Seo", "owner": false, "equalContribution": true },
+        { "name": "Jungwoo Yang", "owner": false, "equalContribution": false },
+        { "name": "Junseong Pyo", "owner": true, "equalContribution": false },
+        { "name": "Nalim Kim", "owner": false, "equalContribution": false },
+        { "name": "Jonggeun Lee", "owner": false, "equalContribution": false },
+        { "name": "Yohan Jo", "owner": false, "equalContribution": false }
+      ],
+      "tags": ["Smart Home", "Benchmark"],
+      "links": [
+        { "label": "arXiv", "url": "https://arxiv.org/abs/2509.24282" },
+        { "label": "GitHub", "url": "https://github.com/holi-lab/SimuHome" }
+      ],
+      "figure": "/figures/simuhome.png"
+    },
+    {
+      "category": "domestic",
+      "title": "B. F. Sword: Blank Inference System with Optimized RAG and Knowledge Distillation",
+      "venueAbbreviation": "HCI Korea",
+      "venueName": "Proceedings of HCI Korea",
+      "year": 2025,
+      "track": "",
+      "note": "",
+      "status": "",
+      "showEqualContributionNote": false,
+      "authors": [
+        { "name": "Junseong Pyo", "owner": true, "equalContribution": true },
+        { "name": "Hyejin Bae", "owner": false, "equalContribution": false },
+        { "name": "Kitae Kwon", "owner": false, "equalContribution": false },
+        { "name": "Jina Kim", "owner": false, "equalContribution": false },
+        { "name": "Woojung Song", "owner": false, "equalContribution": false },
+        { "name": "Yeonseong Shin", "owner": false, "equalContribution": false }
+      ],
+      "tags": ["Education"],
+      "links": [
+        { "label": "DBpia", "url": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12131510" }
+      ],
+      "figure": ""
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "projectsHeading": "Projects",
+  "projects": [
+    {
+      "title": "LG ALIVE",
+      "period": "2024.09 – 2024.12",
+      "subtitle": "Lead · Design · Frontend Development",
+      "highlights": [
+        "LG Electronics collaboration on a natural language-driven smart home multi-chat system"
+      ],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/SWE-ALIVE" },
+        { "label": "Video", "url": "https://www.youtube.com/watch?v=qRJ9v7GVWLA" }
+      ]
+    },
+    {
+      "title": "FORIF OFFICIAL",
+      "period": "2024.01 – 2025.12",
+      "subtitle": "Lead · Design · Frontend Development",
+      "highlights": [
+        "Club administration platform for Hanyang University programming club"
+      ],
+      "links": [
+        { "label": "Website", "url": "https://forif.org/" },
+        { "label": "GitHub", "url": "https://github.com/forif-npo/forif-official" }
+      ]
+    }
+  ],
+  "awardsHeading": "Awards",
+  "awards": [
+    {
+      "title": "DIVE 2026",
+      "subtitle": "2rd Place · Personalized public rental housing recommendation service",
+      "organizer": "Mayor, Busan Metropolitan City",
+      "year": 2026
+    },
+    {
+      "title": "Hanyang University's Student Achievement Award",
+      "subtitle": "86th Anniversary",
+      "organizer": "President, Hanyang University",
+      "year": 2025
+    },
+    {
+      "title": "Hanyang University's Engineering Competition",
+      "subtitle": "2nd Place",
+      "organizer": "Dean of Engineering, Hanyang University",
+      "year": 2025
+    },
+    {
+      "title": "Information System's IC-PBL Contest",
+      "subtitle": "2nd Place · LLM smart home system",
+      "organizer": "LG Electronics",
+      "year": 2024
+    },
+    {
+      "title": "DIVE 2024",
+      "subtitle": "3rd Place · \"Korail Donghae\" LLM app",
+      "organizer": "Mayor, Busan Metropolitan City",
+      "year": 2024
+    },
+    {
+      "title": "Global Innovator Festa (GIF)",
+      "subtitle": "4th Place · ML-based timetable platform",
+      "organizer": "Mayor, Daegu Metropolitan City",
+      "year": 2023
+    }
+  ],
+  "patentsHeading": "Patents",
+  "patents": [
+    {
+      "title": "English Problem Creation System Using Multi-Agents",
+      "applicationNumber": "10-2024-0109541",
+      "filed": "August 16, 2024",
+      "year": 2024
+    }
+  ],
+  "skillsHeading": "Skills",
+  "skillGroups": [
+    {
+      "label": "Programming",
+      "values": ["Python", "C/C++", "TypeScript"]
+    },
+    {
+      "label": "Languages",
+      "values": ["Korean (native)", "English (fluent)"]
+    }
+  ]
+}

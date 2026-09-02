@@ -1,0 +1,27 @@
+{
+  "name": "Junseong Pyo",
+  "subtitle": "Ph.D. Student in Graduate School of Data Science @ HOLI Lab, Seoul National University",
+  "description": "Junseong Pyo — Undergraduate Research Assistant at HOLI Lab, Seoul National University. Researching NLP, smart home agents, and spoken dialogue systems.",
+  "profile": {
+    "src": "/profile_image.png",
+    "alt": "Junseong Pyo presenting a research poster"
+  },
+  "contacts": [
+    {
+      "label": "Email",
+      "url": "mailto:junseongpyo@snu.ac.kr"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/junseong-pyo/"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/standardwish"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=a_gEY1QAAAAJ&hl"
+    }
+  ]
+}

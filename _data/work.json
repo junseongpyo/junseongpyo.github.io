@@ -1,0 +1,30 @@
+{
+  "heading": "Work Experience",
+  "entries": [
+    {
+      "organization": "LG Electronics",
+      "organizationUrl": "https://www.lg.com/",
+      "team": "AI Advanced Research Team",
+      "period": "Mar 2025 – Jun 2025",
+      "role": "Intern",
+      "location": "Seoul, South Korea",
+      "highlights": [
+        "Developed a VLM-LLM smart home system for personalized user instructions and requests",
+        "Built a web platform to monitor GPU usage and processes",
+        "Built LG-SHARE, a multi-turn evaluation benchmark for LG Smart Home Air Care"
+      ]
+    },
+    {
+      "organization": "Zkcrypto",
+      "organizationUrl": "https://www.zkrypto.com/",
+      "team": "SW Team",
+      "period": "Mar 2024 – Aug 2024",
+      "role": "Frontend Web Developer",
+      "location": "Seoul, South Korea",
+      "highlights": [
+        "Implemented SMS server integration for user authentication and recovery",
+        "QA testing manager for the National Election Commission's online voting system"
+      ]
+    }
+  ]
+}

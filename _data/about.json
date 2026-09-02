@@ -1,0 +1,15 @@
+{
+  "heading": "Research Interests",
+  "introductionHtml": "<p>I'm interested in <strong>multimodal AI</strong> and <strong>smart home agents</strong> grounded in speech and spoken language.</p>",
+  "topics": [
+    {
+      "title": "Speech and Spoken Language.",
+      "body": "Most AI systems treat language as text, discarding the richness of how people actually speak. I'm interested in grounding agents in spoken interaction, where prosody, disfluency, and speaker identity carry meaning beyond the words."
+    },
+    {
+      "title": "Smart Home Agents.",
+      "body": "The home is the space where people spend most of their lives — yet it remains one of the least explored frontiers in AI research. Home environments are dynamic and personal, accumulating time-series context that agents must reason over — not just respond to immediate commands. I work on benchmarks and evaluation frameworks that reveal where current AI agents fall short in this setting."
+    }
+  ],
+  "closing": "If you're interested in similar topics, feel free to reach out!"
+}
