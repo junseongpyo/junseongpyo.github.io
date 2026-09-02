@@ -1,0 +1,85 @@
+{% set sortedPublications = publications.items | sortByYearDesc %}
+
+<p class="section-title">{{ publications.internationalHeading | escape }}</p>
+{% for publication in sortedPublications %}
+  {% if publication.category == "international" %}
+    <div class="pub">
+      <div class="pub-body">
+        {% if publication.tags.length %}
+          <div class="pub-tags">
+            {% for tag in publication.tags %}
+              <span class="pub-tag {{ tag | tagColorClass }}">{{ tag | escape }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="pub-title">{{ publication.title | escape }}</div>
+        <div class="pub-venue">
+          <span class="pub-abbr">[{{ publication.venueAbbreviation | escape }}]</span>
+          {{ publication.venueName | escape }}{% if publication.track %}, {{ publication.track | escape }}{% endif %}{% if publication.note %} ({{ publication.note | escape }}){% endif %}, {{ publication.year }}{% if publication.status %} · <span class="pub-status">{{ publication.status | escape }}</span>{% endif %}
+        </div>
+        <div class="pub-authors">
+          {% for author in publication.authors %}{% if author.owner %}<strong>{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}</strong>{% else %}{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}{% if publication.showEqualContributionNote %} <span class="pub-cofirst">*Co-first authors</span>{% endif %}
+        </div>
+
+        {% if publication.links.length %}
+          <div class="pub-github">
+            {% for link in publication.links %}<a class="pub-link" href="{{ link.url | escape }}">{{ link.label | escape }}</a>{% if not loop.last %}<span class="pub-sep">·</span>{% endif %}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if publication.figure %}
+        <div class="pub-fig">
+          <img
+            src="{{ publication.figure | escape }}"
+            alt="{{ publication.title | escape }}"
+            loading="lazy"
+          />
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}
+
+<p class="section-title">{{ publications.domesticHeading | escape }}</p>
+{% for publication in sortedPublications %}
+  {% if publication.category == "domestic" %}
+    <div class="pub">
+      <div class="pub-body">
+        {% if publication.tags.length %}
+          <div class="pub-tags">
+            {% for tag in publication.tags %}
+              <span class="pub-tag {{ tag | tagColorClass }}">{{ tag | escape }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="pub-title">{{ publication.title | escape }}</div>
+        <div class="pub-venue">
+          <span class="pub-abbr">[{{ publication.venueAbbreviation | escape }}]</span>
+          {{ publication.venueName | escape }}{% if publication.track %}, {{ publication.track | escape }}{% endif %}{% if publication.note %} ({{ publication.note | escape }}){% endif %}, {{ publication.year }}{% if publication.status %} · <span class="pub-status">{{ publication.status | escape }}</span>{% endif %}
+        </div>
+        <div class="pub-authors">
+          {% for author in publication.authors %}{% if author.owner %}<strong>{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}</strong>{% else %}{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}{% if publication.showEqualContributionNote %} <span class="pub-cofirst">*Co-first authors</span>{% endif %}
+        </div>
+
+        {% if publication.links.length %}
+          <div class="pub-github">
+            {% for link in publication.links %}<a class="pub-link" href="{{ link.url | escape }}">{{ link.label | escape }}</a>{% if not loop.last %}<span class="pub-sep">·</span>{% endif %}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if publication.figure %}
+        <div class="pub-fig">
+          <img
+            src="{{ publication.figure | escape }}"
+            alt="{{ publication.title | escape }}"
+            loading="lazy"
+          />
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}

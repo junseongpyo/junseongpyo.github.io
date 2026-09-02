@@ -1,0 +1,22 @@
+<p class="section-title">{{ work.heading | escape }}</p>
+
+{% for job in work.entries %}
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">
+        {% if job.organizationUrl %}<a href="{{ job.organizationUrl | escape }}">{{ job.organization | escape }}</a>{% else %}{{ job.organization | escape }}{% endif %}{% if job.team %} — {{ job.team | escape }}{% endif %}
+      </span>
+      <span class="entry-date">{{ job.period | escape }}</span>
+    </div>
+    <div class="entry-subtitle">
+      {{ job.role | escape }} · {{ job.location | escape }}
+    </div>
+    {% if job.highlights.length %}
+      <ul>
+        {% for highlight in job.highlights %}
+          <li>{{ highlight | escape }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endfor %}

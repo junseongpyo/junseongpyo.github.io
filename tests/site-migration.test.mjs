@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
@@ -56,4 +57,32 @@ test("CMS data files contain the complete current site", () => {
   assert.equal(misc.awards.length, 6);
   assert.equal(misc.patents.length, 1);
   assert.equal(misc.skillGroups.length, 2);
+});
+
+test("Eleventy pre-renders all CMS-managed homepage content", () => {
+  execFileSync("npm", ["run", "build"], { cwd: root, stdio: "pipe" });
+  const html = readFileSync(fromRoot("_site/index.html"), "utf8");
+
+  for (const id of ["about", "publications", "research", "work", "misc"]) {
+    assert.match(html, new RegExp(`id=["']${id}["']`));
+  }
+
+  for (const text of [
+    "Ph.D. Student in Graduate School of Data Science",
+    "SpokenUS: A Spoken User Simulator",
+    "LG Electronics",
+    "DIVE 2026",
+  ]) {
+    assert.match(html, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  assert.doesNotMatch(html, /htmx(?:\.min)?\.js|hx-get=|pages\/about\.html/);
+  assert.match(
+    html,
+    /<meta[^>]+name=["']description["'][^>]+content=["']Junseong Pyo/,
+  );
+  assert.match(html, /href=["']https:\/\/arxiv\.org\/abs\/2603\.16783["']/);
+  assert.match(html, /src=["']\/figures\/spokenus\.png["']/);
+  assert.match(html, /<strong>Junseong Pyo\*<\/strong>/);
+  assert.ok(html.indexOf("SpokenUS:") < html.indexOf("SimuHome:"));
 });

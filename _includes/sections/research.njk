@@ -1,0 +1,42 @@
+<p class="section-title">{{ research.experienceHeading | escape }}</p>
+
+{% for experience in research.experiences %}
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">
+        {% if experience.organizationUrl %}<a href="{{ experience.organizationUrl | escape }}">{{ experience.organization | escape }}</a>{% else %}{{ experience.organization | escape }}{% endif %}
+      </span>
+      <span class="entry-date">{{ experience.period | escape }}</span>
+    </div>
+    <div class="entry-subtitle">
+      {{ experience.role | escape }} · {{ experience.location | escape }}
+    </div>
+    {% if experience.highlights.length %}
+      <ul>
+        {% for highlight in experience.highlights %}
+          <li>{{ highlight | escape }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endfor %}
+
+<p class="section-title">{{ research.educationHeading | escape }}</p>
+{% for school in research.education %}
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">
+        {% if school.institutionUrl %}<a href="{{ school.institutionUrl | escape }}">{{ school.institution | escape }}</a>{% else %}{{ school.institution | escape }}{% endif %}
+      </span>
+      <span class="entry-date">{{ school.period | escape }}</span>
+    </div>
+    <div class="entry-subtitle">
+      {{ school.degree | escape }} · {{ school.location | escape }}
+    </div>
+    {% for detail in school.details %}
+      <div class="entry-subtitle" style="margin-top: 4px">
+        {{ detail | escape }}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}

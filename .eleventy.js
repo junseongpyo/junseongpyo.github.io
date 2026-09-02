@@ -43,6 +43,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("styles.css");
 
   eleventyConfig.ignores.add("README.md");
+  eleventyConfig.ignores.add("docs/**");
   eleventyConfig.ignores.add("node_modules/**");
   eleventyConfig.ignores.add("tests/**");
 
@@ -76,6 +77,10 @@ module.exports = function (eleventyConfig) {
 
     return `tag-color-${(hash % paletteSize) + 1}`;
   });
+
+  eleventyConfig.addFilter("sortByYearDesc", (items = []) =>
+    [...items].sort((a, b) => b.year - a.year),
+  );
 
   eleventyConfig.addFilter("groupPostsByGroup", (posts = []) => {
     const groups = new Map();

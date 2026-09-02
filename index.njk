@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ site.description | escape }}" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{{ site.name | escape }}</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-X61RL3PT4G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-X61RL3PT4G");
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <div class="main">
+        <header class="site-header">
+          <div class="header-copy">
+            <h1>{{ site.name | escape }}</h1>
+            <div class="header-subtitle">{{ site.subtitle | escape }}</div>
+            <div class="contact">
+              {% for contact in site.contacts %}<a href="{{ contact.url | escape }}">{{ contact.label | escape }}</a>{% if not loop.last %}<span>|</span>{% endif %}{% endfor %}
+            </div>
+          </div>
+
+          <figure class="profile-photo">
+            <img
+              src="{{ site.profile.src | escape }}"
+              alt="{{ site.profile.alt | escape }}"
+              width="800"
+              height="auto"
+            />
+          </figure>
+        </header>
+
+        <section id="about" aria-label="About">
+          {% include "sections/about.njk" %}
+        </section>
+
+        <section id="publications" aria-label="{{ publications.heading | escape }}">
+          {% include "sections/publications.njk" %}
+        </section>
+
+        <section id="research" aria-label="Research Experience">
+          {% include "sections/research.njk" %}
+        </section>
+
+        <section id="work" aria-label="Work Experience">
+          {% include "sections/work.njk" %}
+        </section>
+
+        <section id="misc" aria-label="Miscellaneous">
+          {% include "sections/misc.njk" %}
+        </section>
+      </div>
+
+      <aside class="toc">
+        <a href="#about" class="active">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#research">Research Experience</a>
+        <a href="#work">Work Experience</a>
+        <a href="#misc">Misc</a>
+      </aside>
+    </div>
+
+    <script>
+      const tocLinks = document.querySelectorAll(".toc a");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              tocLinks.forEach((a) => a.classList.remove("active"));
+              const active = document.querySelector(
+                `.toc a[href="#${entry.target.id}"]`,
+              );
+              if (active) active.classList.add("active");
+            }
+          });
+        },
+        { rootMargin: "0px 0px -80% 0px" },
+      );
+
+      document
+        .querySelectorAll("section[id]")
+        .forEach((section) => observer.observe(section));
+
+      document.querySelectorAll("a[href]").forEach((link) => {
+        if (link.hostname && link.hostname !== location.hostname) {
+          link.target = "_blank";
+          link.rel = "noopener";
+        }
+      });
+    </script>
+  </body>
+</html>
