@@ -35,7 +35,7 @@ test("CMS data files contain the complete current site", () => {
   const site = readJson("_data/site.json");
   requiredStrings(site, ["name", "subtitle", "description"], "site");
   assert.equal(site.name, "Junseong Pyo");
-  assert.equal(site.contacts.length, 4);
+  assert.equal(site.contacts.length, 5);
 
   const about = readJson("_data/about.json");
   assert.equal(about.topics.length, 2);

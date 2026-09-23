@@ -455,9 +455,7 @@ section + section {
 }
 
 .lang-switch {
-  position: absolute;
-  top: 16px;
-  left: 24px;
+  margin-bottom: 24px;
   font-size: var(--fs-xs);
   color: var(--c-text-muted);
 }

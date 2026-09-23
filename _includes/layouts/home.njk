@@ -29,11 +29,11 @@
     </script>
   </head>
   <body>
-    <nav class="lang-switch" aria-label="{{ ui.switchAriaLabel | escape }}">
-      {% for code in i18n.switcherOrder %}{% set target = i18n.locales[code] %}{% if code == locale %}<span class="active" aria-current="page" lang="{{ target.htmlLang }}">{{ target.switchLabel }}</span>{% else %}<a href="{{ target.path }}" hreflang="{{ target.htmlLang }}" lang="{{ target.htmlLang }}">{{ target.switchLabel }}</a>{% endif %}{% if not loop.last %}<span class="lang-sep" aria-hidden="true">|</span>{% endif %}{% endfor %}
-    </nav>
     <div class="page">
       <div class="main">
+        <nav class="lang-switch" aria-label="{{ ui.switchAriaLabel | escape }}">
+          {% for code in i18n.switcherOrder %}{% set target = i18n.locales[code] %}{% if code == locale %}<span class="active" aria-current="page" lang="{{ target.htmlLang }}">{{ target.switchLabel }}</span>{% else %}<a href="{{ target.path }}" hreflang="{{ target.htmlLang }}" lang="{{ target.htmlLang }}">{{ target.switchLabel }}</a>{% endif %}{% if not loop.last %}<span class="lang-sep" aria-hidden="true">|</span>{% endif %}{% endfor %}
+        </nav>
         <header class="site-header">
           <div class="header-copy">
             <h1>{{ site.name | escape }}</h1>

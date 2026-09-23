@@ -1,7 +1,7 @@
 {
   "name": "표준성",
-  "subtitle": "서울대학교 데이터사이언스대학원 HOLI Lab 석박사통합과정",
-  "description": "표준성 — 서울대학교 데이터사이언스대학원 HOLI Lab 석박사통합과정. 자연어처리, 스마트홈 에이전트, 음성 대화 시스템을 연구합니다.",
+  "subtitle": "서울대학교 데이터사이언스대학원 석박사통합과정 @ HOLI Lab ",
+  "description": "표준성 - 서울대학교 데이터사이언스대학원 HOLI Lab 석박사통합과정. 자연어처리, 스마트홈 에이전트, 음성 대화 시스템을 연구합니다.",
   "profile": {
     "src": "profile_image.png",
     "alt": "연구 포스터를 발표하는 표준성"
@@ -22,6 +22,10 @@
     {
       "label": "Google Scholar",
       "url": "https://scholar.google.com/citations?user=A9EO8z0AAAAJ"
+    },
+    {
+      "label": "HOLI-LAB",
+      "url": "https://yohanjo.github.io/"
     }
   ]
 }

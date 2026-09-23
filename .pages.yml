@@ -257,7 +257,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{organization} — {period}"
+            summary: "{organization} - {period}"
         fields:
           - name: organization
             label: Organization
@@ -293,7 +293,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{institution} — {period}"
+            summary: "{institution} - {period}"
         fields:
           - name: institution
             label: Institution
@@ -339,7 +339,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{organization} — {period}"
+            summary: "{organization} - {period}"
         fields:
           - name: organization
             label: Organization
@@ -388,7 +388,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{title} — {period}"
+            summary: "{title} - {period}"
         fields:
           - name: title
             label: Title
@@ -433,7 +433,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{title} — {year}"
+            summary: "{title} - {year}"
         fields:
           - name: title
             label: Title
@@ -462,7 +462,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{title} — {year}"
+            summary: "{title} - {year}"
         fields:
           - name: title
             label: Title

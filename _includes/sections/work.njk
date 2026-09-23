@@ -4,7 +4,7 @@
   <div class="entry">
     <div class="entry-header">
       <span class="entry-title">
-        {% if job.organizationUrl %}<a href="{{ job.organizationUrl | escape }}">{{ job.organization | escape }}</a>{% else %}{{ job.organization | escape }}{% endif %}{% if job.team %} — {{ job.team | escape }}{% endif %}
+        {% if job.organizationUrl %}<a href="{{ job.organizationUrl | escape }}">{{ job.organization | escape }}</a>{% else %}{{ job.organization | escape }}{% endif %}{% if job.team %} - {{ job.team | escape }}{% endif %}
       </span>
       <span class="entry-date">{{ job.period | escape }}</span>
     </div>

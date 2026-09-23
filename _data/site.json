@@ -1,7 +1,7 @@
 {
   "name": "Junseong Pyo",
   "subtitle": "Integrated MS-PhD Student in Graduate School of Data Science @ HOLI Lab, Seoul National University",
-  "description": "Junseong Pyo — Integrated MS-PhD Student at HOLI Lab, Seoul National University. Researching NLP, smart home agents, and spoken dialogue systems.",
+  "description": "Junseong Pyo - Integrated MS-PhD Student at HOLI Lab, Seoul National University. Researching NLP, smart home agents, and spoken dialogue systems.",
   "profile": {
     "src": "profile_image.png",
     "alt": "Junseong Pyo presenting a research poster"
@@ -22,6 +22,10 @@
     {
       "label": "Google Scholar",
       "url": "https://scholar.google.com/citations?user=A9EO8z0AAAAJ"
+    },
+    {
+      "label": "HOLI-LAB",
+      "url": "https://yohanjo.github.io/"
     }
   ]
 }

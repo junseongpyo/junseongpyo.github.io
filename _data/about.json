@@ -8,7 +8,7 @@
     },
     {
       "title": "Smart Home Agents.",
-      "body": "The home is the space where people spend most of their lives — yet it remains one of the least explored frontiers in AI research. Home environments are dynamic and personal, accumulating time-series context that agents must reason over — not just respond to immediate commands. I work on benchmarks and evaluation frameworks that reveal where current AI agents fall short in this setting."
+      "body": "The home is the space where people spend most of their lives - yet it remains one of the least explored frontiers in AI research. Home environments are dynamic and personal, accumulating time-series context that agents must reason over - not just respond to immediate commands. I work on benchmarks and evaluation frameworks that reveal where current AI agents fall short in this setting."
     }
   ],
   "closing": "If you're interested in similar topics, feel free to reach out!"
