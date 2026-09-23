@@ -21,6 +21,12 @@ module.exports = function (eleventyConfig) {
     return `tag-color-${(hash % paletteSize) + 1}`;
   });
 
+  // Pages CMS stores profile images relative to the site root; make them
+  // absolute so they also resolve from /ko/.
+  eleventyConfig.addFilter("rootPath", (src = "") =>
+    /^(?:[a-z]+:)?\/\//i.test(src) || src.startsWith("/") ? src : `/${src}`,
+  );
+
   eleventyConfig.addFilter("sortByYearDesc", (items = []) =>
     [...items].sort((a, b) => b.year - a.year),
   );

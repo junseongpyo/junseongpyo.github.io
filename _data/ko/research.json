@@ -1,0 +1,50 @@
+{
+  "experienceHeading": "연구 경력",
+  "experiences": [
+    {
+      "organization": "서울대학교 — HOLI Lab",
+      "organizationUrl": "",
+      "period": "2026.09 – 현재",
+      "role": "석박사통합과정",
+      "location": "서울",
+      "highlights": [
+        "로봇을 위한 물리–API 상호작용 환경 개발"
+      ]
+    },
+    {
+      "organization": "서울대학교 — HOLI Lab",
+      "organizationUrl": "",
+      "period": "2025.07 – 2026.08",
+      "role": "학부 연구생",
+      "location": "서울",
+      "highlights": [
+        "스마트홈 에이전트 평가 및 학습용 벤치마크 개발",
+        "과업 지향 대화(TOD)를 위한 음성 사용자 시뮬레이터 연구",
+        "논문 탐색 에이전트용 데이터셋 구축"
+      ]
+    }
+  ],
+  "educationHeading": "학력",
+  "education": [
+    {
+      "institution": "서울대학교",
+      "institutionUrl": "",
+      "period": "2026.09 입학",
+      "degree": "데이터사이언스대학원 데이터사이언스학과 석박사통합과정",
+      "location": "서울",
+      "details": [
+        "평점: - / 4.3"
+      ]
+    },
+    {
+      "institution": "한양대학교",
+      "institutionUrl": "",
+      "period": "2023.03 – 2026.08",
+      "degree": "정보시스템학과 학사",
+      "location": "서울",
+      "details": [
+        "전체 평점: 4.12 / 4.5 · 전공 평점: 4.18 / 4.5"
+      ]
+    }
+  ]
+}

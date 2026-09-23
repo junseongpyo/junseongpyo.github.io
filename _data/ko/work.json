@@ -1,0 +1,30 @@
+{
+  "heading": "직장 경력",
+  "entries": [
+    {
+      "organization": "LG전자",
+      "organizationUrl": "https://www.lg.com/",
+      "team": "AI 선행개발팀",
+      "period": "2025.03 – 2025.06",
+      "role": "인턴",
+      "location": "서울",
+      "highlights": [
+        "VLM-LLM 기반 개인 맞춤형 사용자 지시 및 요청 처리 스마트홈 시스템 개발",
+        "GPU 사용량 및 프로세스 모니터링 웹 플랫폼 구축",
+        "LG 스마트홈 에어케어를 위한 멀티턴 평가 벤치마크 LG-SHARE 구축"
+      ]
+    },
+    {
+      "organization": "(주)지크립토",
+      "organizationUrl": "https://www.zkrypto.com/",
+      "team": "SW팀",
+      "period": "2024.03 – 2024.08",
+      "role": "프론트엔드 웹 개발자",
+      "location": "서울",
+      "highlights": [
+        "사용자 인증 및 계정 복구를 위한 SMS 서버 연동 구현",
+        "중앙선거관리위원회 온라인 투표 시스템 QA 테스트 담당"
+      ]
+    }
+  ]
+}

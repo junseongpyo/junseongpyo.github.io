@@ -1,0 +1,47 @@
+{
+  "siteUrl": "https://junseongpyo.github.io",
+  "locales": {
+    "en": {
+      "htmlLang": "en",
+      "path": "/",
+      "switchPath": "/ko/",
+      "switchLang": "ko",
+      "switchLabel": "한국어",
+      "nav": {
+        "about": "About",
+        "publications": "Publications",
+        "research": "Research Experience",
+        "work": "Work Experience",
+        "misc": "Misc",
+        "miscFull": "Miscellaneous"
+      },
+      "coFirstAuthors": "Co-first authors",
+      "patent": {
+        "label": "Patent",
+        "applicationNumber": "App. No",
+        "filed": "Filed"
+      }
+    },
+    "ko": {
+      "htmlLang": "ko",
+      "path": "/ko/",
+      "switchPath": "/",
+      "switchLang": "en",
+      "switchLabel": "English",
+      "nav": {
+        "about": "소개",
+        "publications": "논문",
+        "research": "연구 경력",
+        "work": "직장 경력",
+        "misc": "기타",
+        "miscFull": "기타"
+      },
+      "coFirstAuthors": "공동 제1저자",
+      "patent": {
+        "label": "특허",
+        "applicationNumber": "출원번호",
+        "filed": "출원일"
+      }
+    }
+  }
+}

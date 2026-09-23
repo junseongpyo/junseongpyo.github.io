@@ -19,7 +19,7 @@
           {{ publication.venueName | escape }}{% if publication.track %}, {{ publication.track | escape }}{% endif %}{% if publication.note %} ({{ publication.note | escape }}){% endif %}, {{ publication.year }}{% if publication.status %} · <span class="pub-status">{{ publication.status | escape }}</span>{% endif %}
         </div>
         <div class="pub-authors">
-          {% for author in publication.authors %}{% if author.owner %}<strong>{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}</strong>{% else %}{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}{% if publication.showEqualContributionNote %} <span class="pub-cofirst">*Co-first authors</span>{% endif %}
+          {% for author in publication.authors %}{% if author.owner %}<strong>{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}</strong>{% else %}{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}{% if publication.showEqualContributionNote %} <span class="pub-cofirst">*{{ ui.coFirstAuthors | escape }}</span>{% endif %}
         </div>
 
         {% if publication.links.length %}
@@ -61,7 +61,7 @@
           {{ publication.venueName | escape }}{% if publication.track %}, {{ publication.track | escape }}{% endif %}{% if publication.note %} ({{ publication.note | escape }}){% endif %}, {{ publication.year }}{% if publication.status %} · <span class="pub-status">{{ publication.status | escape }}</span>{% endif %}
         </div>
         <div class="pub-authors">
-          {% for author in publication.authors %}{% if author.owner %}<strong>{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}</strong>{% else %}{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}{% if publication.showEqualContributionNote %} <span class="pub-cofirst">*Co-first authors</span>{% endif %}
+          {% for author in publication.authors %}{% if author.owner %}<strong>{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}</strong>{% else %}{{ author.name | escape }}{% if author.equalContribution %}*{% endif %}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}{% if publication.showEqualContributionNote %} <span class="pub-cofirst">*{{ ui.coFirstAuthors | escape }}</span>{% endif %}
         </div>
 
         {% if publication.links.length %}

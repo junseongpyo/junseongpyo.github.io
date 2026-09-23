@@ -31,6 +31,12 @@ _data/work.json
 _data/misc.json
 ```
 
+The Korean version of the homepage is served at `/ko/` and reads translated
+copies of the same files from `_data/ko/`. They appear in Pages CMS with a
+`[한국어]` prefix and use the same fields as the English files. UI labels for
+both languages (navigation, language switch, and so on) live in
+`_data/i18n.json`.
+
 Images are kept in the repository and can be selected from the CMS. The Pages
 CMS schema is defined in `.pages.yml`.
 

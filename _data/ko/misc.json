@@ -1,0 +1,107 @@
+{
+  "projectsHeading": "프로젝트",
+  "projects": [
+    {
+      "title": "LG ALIVE",
+      "period": "2024.09 – 2024.12",
+      "subtitle": "팀장 · 디자인 · 프론트엔드 개발",
+      "highlights": [
+        "LG전자와 협업한 자연어 기반 스마트홈 멀티챗 시스템"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/SWE-ALIVE"
+        },
+        {
+          "label": "영상",
+          "url": "https://www.youtube.com/watch?v=qRJ9v7GVWLA"
+        }
+      ]
+    },
+    {
+      "title": "FORIF OFFICIAL",
+      "period": "2024.01 – 2025.12",
+      "subtitle": "팀장 · 디자인 · 프론트엔드 개발",
+      "highlights": [
+        "한양대학교 프로그래밍 동아리 운영 플랫폼"
+      ],
+      "links": [
+        {
+          "label": "웹사이트",
+          "url": "https://forif.org/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/forif-npo/forif-official"
+        }
+      ]
+    }
+  ],
+  "awardsHeading": "수상",
+  "awards": [
+    {
+      "title": "DIVE 2026",
+      "subtitle": "최우수상 (종합 2위) · 부산도시공사 발제 과제 1위 · 맞춤형 공공임대주택 추천 서비스",
+      "organizer": "부산광역시장",
+      "year": 2026
+    },
+    {
+      "title": "한양대학교 학생공로상",
+      "subtitle": "개교 86주년 기념",
+      "organizer": "한양대학교 총장",
+      "year": 2025
+    },
+    {
+      "title": "한양대학교 공학경진대회",
+      "subtitle": "2위",
+      "organizer": "한양대학교 공과대학장",
+      "year": 2025
+    },
+    {
+      "title": "정보시스템학과 IC-PBL 경진대회",
+      "subtitle": "2위 · LLM 기반 스마트홈 시스템",
+      "organizer": "LG전자",
+      "year": 2024
+    },
+    {
+      "title": "DIVE 2024",
+      "subtitle": "서비스 및 앱 개발 부문 우수상 · 한국철도공사 발제 과제 1위 · LLM 앱 ‘코레일 동해’",
+      "organizer": "부산광역시장",
+      "year": 2024
+    },
+    {
+      "title": "Global Innovator Festa (GIF)",
+      "subtitle": "장려상 (4위) · 머신러닝 기반 맞춤형 시간표 플랫폼",
+      "organizer": "대구광역시장",
+      "year": 2023
+    }
+  ],
+  "patentsHeading": "특허",
+  "patents": [
+    {
+      "title": "멀티 에이전트를 활용한 영어 문제 생성 시스템",
+      "applicationNumber": "10-2024-0109541",
+      "filed": "2024.08.16",
+      "year": 2024
+    }
+  ],
+  "skillsHeading": "기술",
+  "skillGroups": [
+    {
+      "label": "프로그래밍",
+      "values": [
+        "Python",
+        "C/C++",
+        "TypeScript"
+      ]
+    },
+    {
+      "label": "언어",
+      "values": [
+        "한국어 (모국어)",
+        "영어 (유창)"
+      ]
+    }
+  ]
+}

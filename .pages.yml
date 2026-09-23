@@ -25,7 +25,7 @@ content:
     operations:
       create: false
       delete: false
-    fields:
+    fields: &site_fields
       - name: name
         label: Name
         type: string
@@ -79,7 +79,7 @@ content:
     operations:
       create: false
       delete: false
-    fields:
+    fields: &about_fields
       - name: heading
         label: Heading
         type: string
@@ -121,7 +121,7 @@ content:
     operations:
       create: false
       delete: false
-    fields:
+    fields: &publications_fields
       - name: heading
         label: Section name
         type: string
@@ -245,7 +245,7 @@ content:
     operations:
       create: false
       delete: false
-    fields:
+    fields: &research_fields
       - name: experienceHeading
         label: Research heading
         type: string
@@ -327,7 +327,7 @@ content:
     operations:
       create: false
       delete: false
-    fields:
+    fields: &work_fields
       - name: heading
         label: Heading
         type: string
@@ -376,7 +376,7 @@ content:
     operations:
       create: false
       delete: false
-    fields:
+    fields: &misc_fields
       - name: projectsHeading
         label: Projects heading
         type: string
@@ -502,3 +502,63 @@ content:
             type: string
             required: true
             list: true
+
+  - name: site_ko
+    label: "[한국어] 사이트 설정"
+    type: file
+    path: _data/ko/site.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields: *site_fields
+
+  - name: about_ko
+    label: "[한국어] 소개"
+    type: file
+    path: _data/ko/about.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields: *about_fields
+
+  - name: publications_ko
+    label: "[한국어] 논문"
+    type: file
+    path: _data/ko/publications.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields: *publications_fields
+
+  - name: research_ko
+    label: "[한국어] 연구 경력 및 학력"
+    type: file
+    path: _data/ko/research.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields: *research_fields
+
+  - name: work_ko
+    label: "[한국어] 직장 경력"
+    type: file
+    path: _data/ko/work.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields: *work_fields
+
+  - name: misc_ko
+    label: "[한국어] 프로젝트, 수상, 특허, 기술"
+    type: file
+    path: _data/ko/misc.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields: *misc_fields

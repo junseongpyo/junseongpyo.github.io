@@ -440,3 +440,9 @@ section + section {
     width: 100%;
   }
 }
+
+:lang(ko) body {
+  font-family: "Roboto", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+    sans-serif;
+  word-break: keep-all;
+}

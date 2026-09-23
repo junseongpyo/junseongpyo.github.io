@@ -80,7 +80,7 @@ test("Eleventy pre-renders all CMS-managed homepage content", () => {
   }
 
   for (const text of [
-    "Ph.D. Student in Graduate School of Data Science",
+    "Integrated MS-PhD Student in Graduate School of Data Science",
     "SpokenUS: A Spoken User Simulator",
     "LG Electronics",
     "DIVE 2026",
@@ -142,14 +142,16 @@ test("Pages CMS exposes every editable data domain", () => {
       format,
       operations,
     })),
-    ["site", "about", "publications", "research", "work", "misc"].map(
-      (name) => ({
-        name,
-        type: "file",
-        path: `_data/${name}.json`,
-        format: "json",
-        operations: { create: false, delete: false },
-      }),
+    ["", "ko/"].flatMap((dir) =>
+      ["site", "about", "publications", "research", "work", "misc"].map(
+        (name) => ({
+          name: dir ? `${name}_ko` : name,
+          type: "file",
+          path: `_data/${dir}${name}.json`,
+          format: "json",
+          operations: { create: false, delete: false },
+        }),
+      ),
     ),
   );
 
@@ -248,7 +250,7 @@ test("Pages CMS exposes every editable data domain", () => {
   };
 
   for (const entry of config.content) {
-    const expected = expectedFields[entry.name];
+    const expected = expectedFields[entry.name.replace(/_ko$/, "")];
     assert.deepEqual(
       entry.fields.map(({ name }) => name),
       expected.top,
@@ -365,7 +367,7 @@ test("Pages CMS exposes every editable data domain", () => {
 
   for (const entry of config.content) {
     for (const [path, descriptor] of Object.entries(
-      expectedSchema[entry.name],
+      expectedSchema[entry.name.replace(/_ko$/, "")],
     )) {
       const repeated = descriptor.endsWith("[]");
       const withoutList = repeated ? descriptor.slice(0, -2) : descriptor;
@@ -458,4 +460,44 @@ test("blog and fragment implementation are completely removed", () => {
 
   const readme = readFileSync(fromRoot("README.md"), "utf8");
   assert.doesNotMatch(readme, /blog|new-post/i);
+});
+
+test("Korean data files mirror the English content structure", () => {
+  const shape = (value) =>
+    Array.isArray(value)
+      ? value.map(shape)
+      : value && typeof value === "object"
+        ? Object.fromEntries(
+            Object.entries(value).map(([key, item]) => [key, shape(item)]),
+          )
+        : typeof value;
+
+  for (const name of ["site", "about", "publications", "research", "work", "misc"]) {
+    assert.deepEqual(
+      shape(readJson(`_data/ko/${name}.json`)),
+      shape(readJson(`_data/${name}.json`)),
+      name,
+    );
+  }
+});
+
+test("the Korean homepage is served at /ko/ with language links", () => {
+  execFileSync("npm", ["run", "build"], { cwd: root, stdio: "pipe" });
+  const en = readFileSync(fromRoot("_site/index.html"), "utf8");
+  const ko = readFileSync(fromRoot("_site/ko/index.html"), "utf8");
+
+  assert.match(en, /<html lang="en">/);
+  assert.match(ko, /<html lang="ko">/);
+  assert.match(en, /<a href="\/ko\/"[^>]*>한국어<\/a>/);
+  assert.match(ko, /<a href="\/"[^>]*>English<\/a>/);
+  for (const html of [en, ko]) {
+    assert.match(html, /hreflang="ko" href="https:\/\/junseongpyo\.github\.io\/ko\/"/);
+    assert.match(html, /src="\/profile_image\.png"/);
+  }
+
+  assert.match(ko, /<h1>표준성<\/h1>/);
+  assert.match(ko, /최우수상 \(종합 2위\)/);
+  assert.match(ko, /공동 제1저자/);
+  assert.doesNotMatch(ko, /Co-first authors|Research Interests/);
+  assert.doesNotMatch(en, /공동 제1저자|최우수상/);
 });

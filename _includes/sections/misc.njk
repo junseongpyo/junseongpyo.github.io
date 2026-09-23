@@ -42,7 +42,7 @@
       <span class="entry-date">{{ patent.year }}</span>
     </div>
     <div class="entry-subtitle">
-      Patent · App. No: {{ patent.applicationNumber | escape }} · Filed: {{ patent.filed | escape }}
+      {{ ui.patent.label | escape }} · {{ ui.patent.applicationNumber | escape }}: {{ patent.applicationNumber | escape }} · {{ ui.patent.filed | escape }}: {{ patent.filed | escape }}
     </div>
   </div>
 {% endfor %}
