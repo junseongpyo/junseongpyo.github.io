@@ -442,7 +442,42 @@ section + section {
 }
 
 :lang(ko) body {
-  font-family: "Roboto", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
-    sans-serif;
+  --font-ko: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+  font-family: var(--font-ko);
   word-break: keep-all;
+}
+
+:lang(ko) header h1,
+:lang(ko) .toc a {
+  font-family: var(--font-ko);
+}
+
+.lang-switch {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+}
+
+.lang-switch a {
+  color: var(--c-text-muted);
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  color: var(--c-text);
+  text-decoration: underline;
+}
+
+.lang-switch .active {
+  color: var(--c-text);
+  font-weight: 700;
+}
+
+.lang-sep {
+  margin: 0 8px;
+  color: var(--c-text-faint);
 }

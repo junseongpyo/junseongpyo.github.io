@@ -10,6 +10,10 @@
     {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ i18n.siteUrl }}/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{{ site.name | escape }}</title>
+    {% if locale == "ko" %}<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />{% endif %}
     <link rel="stylesheet" href="/styles.css" />
     <script
       async
@@ -25,6 +29,9 @@
     </script>
   </head>
   <body>
+    <nav class="lang-switch" aria-label="{{ ui.switchAriaLabel | escape }}">
+      {% for code in i18n.switcherOrder %}{% set target = i18n.locales[code] %}{% if code == locale %}<span class="active" aria-current="page" lang="{{ target.htmlLang }}">{{ target.switchLabel }}</span>{% else %}<a href="{{ target.path }}" hreflang="{{ target.htmlLang }}" lang="{{ target.htmlLang }}">{{ target.switchLabel }}</a>{% endif %}{% if not loop.last %}<span class="lang-sep" aria-hidden="true">|</span>{% endif %}{% endfor %}
+    </nav>
     <div class="page">
       <div class="main">
         <header class="site-header">
@@ -32,7 +39,7 @@
             <h1>{{ site.name | escape }}</h1>
             <div class="header-subtitle">{{ site.subtitle | escape }}</div>
             <div class="contact">
-              {% for contact in site.contacts %}<a href="{{ contact.url | escape }}">{{ contact.label | escape }}</a>{% if not loop.last %}<span>|</span>{% endif %}{% endfor %}<span>|</span><a href="{{ ui.switchPath }}" hreflang="{{ ui.switchLang }}" lang="{{ ui.switchLang }}">{{ ui.switchLabel }}</a>
+              {% for contact in site.contacts %}<a href="{{ contact.url | escape }}">{{ contact.label | escape }}</a>{% if not loop.last %}<span>|</span>{% endif %}{% endfor %}
             </div>
           </div>
 

@@ -488,8 +488,15 @@ test("the Korean homepage is served at /ko/ with language links", () => {
 
   assert.match(en, /<html lang="en">/);
   assert.match(ko, /<html lang="ko">/);
-  assert.match(en, /<a href="\/ko\/"[^>]*>한국어<\/a>/);
-  assert.match(ko, /<a href="\/"[^>]*>English<\/a>/);
+  for (const [html, current, other, href] of [
+    [en, "EN", "한국어", "\\/ko\\/"],
+    [ko, "한국어", "EN", "\\/"],
+  ]) {
+    const nav = html.match(/<nav class="lang-switch"[\s\S]*?<\/nav>/)[0];
+    assert.ok(nav.indexOf("한국어") < nav.indexOf("EN"));
+    assert.match(nav, new RegExp(`<span class="active" aria-current="page"[^>]*>${current}<`));
+    assert.match(nav, new RegExp(`<a href="${href}"[^>]*>${other}<\\/a>`));
+  }
   for (const html of [en, ko]) {
     assert.match(html, /hreflang="ko" href="https:\/\/junseongpyo\.github\.io\/ko\/"/);
     assert.match(html, /src="\/profile_image\.png"/);
