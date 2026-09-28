@@ -44,7 +44,7 @@
       ],
       "tags": ["Speech", "Benchmark"],
       "links": [
-        { "label": "arXiv", "url": "https://arxiv.org/abs/2601.04029" },
+        { "label": "Paper", "url": "https://aclanthology.org/2026.acl-long.944/" },
         { "label": "GitHub", "url": "https://github.com/holi-lab/SpeakerSleuth" }
       ],
       "figure": "/figures/speakersleuth.png"
@@ -69,7 +69,7 @@
       ],
       "tags": ["Smart Home", "Benchmark"],
       "links": [
-        { "label": "arXiv", "url": "https://arxiv.org/abs/2509.24282" },
+        { "label": "Paper", "url": "https://openreview.net/pdf?id=LCS1WsGvha" },
         { "label": "GitHub", "url": "https://github.com/holi-lab/SimuHome" }
       ],
       "figure": "/figures/simuhome.png"
