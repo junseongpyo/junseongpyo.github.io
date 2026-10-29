@@ -9,9 +9,6 @@
       "venueAbbreviation": "EMNLP",
       "venueName": "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing",
       "year": 2026,
-      "track": "",
-      "note": "",
-      "status": "",
       "showEqualContributionNote": true,
       "authors": [
         {
@@ -42,15 +39,15 @@
       ],
       "links": [
         {
-          "label": "arXiv",
-          "url": "https://arxiv.org/abs/2603.16783"
+          "label": "Paper",
+          "url": "https://aclanthology.org/2026.emnlp-main.87"
         },
         {
           "label": "GitHub",
           "url": "https://github.com/holi-lab/SpokenTOD"
         }
       ],
-      "figure": "/figures/spokenus.png"
+      "figure": "/figures/스크린샷 2026-10-29 오전 11.50.50-1.png"
     },
     {
       "category": "international",
@@ -58,9 +55,6 @@
       "venueAbbreviation": "ACL",
       "venueName": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics",
       "year": 2026,
-      "track": "",
-      "note": "",
-      "status": "",
       "showEqualContributionNote": false,
       "authors": [
         {
@@ -106,9 +100,7 @@
       "venueAbbreviation": "ICLR",
       "venueName": "The Fourteenth International Conference on Learning Representations",
       "year": 2026,
-      "track": "",
       "note": "Oral",
-      "status": "",
       "showEqualContributionNote": false,
       "authors": [
         {
@@ -164,9 +156,6 @@
       "venueAbbreviation": "HCI Korea",
       "venueName": "한국HCI학회 학술대회 논문집",
       "year": 2025,
-      "track": "",
-      "note": "",
-      "status": "",
       "showEqualContributionNote": false,
       "authors": [
         {
@@ -208,8 +197,7 @@
           "label": "DBpia",
           "url": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12131510"
         }
-      ],
-      "figure": ""
+      ]
     }
   ]
 }
