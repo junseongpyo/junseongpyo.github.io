@@ -160,11 +160,11 @@ content:
           - name: venueAbbreviation
             label: Venue abbreviation
             type: string
-            required: true
+            required: false
           - name: venueName
             label: Venue name
             type: text
-            required: true
+            required: false
           - name: year
             label: Year
             type: number
