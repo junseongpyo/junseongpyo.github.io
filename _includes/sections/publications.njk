@@ -15,7 +15,7 @@
       <div class="pub-body">
         {% if publication.tags.length %}
           <div class="pub-tags">
-            {% for tag in publication.tags | sort(false, false) %}
+            {% for tag in publication.tags | sortTags %}
               <span class="pub-tag {{ tag | tagColorClass }}">{{ tag | escape }}</span>
             {% endfor %}
           </div>

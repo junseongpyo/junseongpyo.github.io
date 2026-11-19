@@ -26,6 +26,20 @@ module.exports = function (eleventyConfig) {
     /^(?:[a-z]+:)?\/\//i.test(src) || src.startsWith("/") ? src : `/${src}`,
   );
 
+  // Priority tags always come first in this order; the rest follow alphabetically.
+  const priorityTags = ["smart home", "robotics", "speech"];
+  eleventyConfig.addFilter("sortTags", (tags = []) => {
+    const rank = (tag) => {
+      const index = priorityTags.indexOf(String(tag).toLowerCase());
+      return index === -1 ? priorityTags.length : index;
+    };
+    return [...tags].sort(
+      (a, b) =>
+        rank(a) - rank(b) ||
+        String(a).localeCompare(String(b), undefined, { sensitivity: "base" }),
+    );
+  });
+
   eleventyConfig.addFilter("byCategory", (items = [], category = "") =>
     items.filter((item) => item.category === category),
   );
