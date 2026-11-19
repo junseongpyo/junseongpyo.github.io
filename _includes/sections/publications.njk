@@ -1,9 +1,9 @@
 {% set sortedPublications = publications.items | sortByYearDesc %}
 
 {% set publicationGroups = [
+  { key: "preprint", heading: publications.preprintHeading },
   { key: "international", heading: publications.internationalHeading },
-  { key: "domestic", heading: publications.domesticHeading },
-  { key: "preprint", heading: publications.preprintHeading }
+  { key: "domestic", heading: publications.domesticHeading }
 ] %}
 {% for group in publicationGroups %}
 {% set groupItems = sortedPublications | byCategory(group.key) %}
