@@ -5,6 +5,48 @@
   "preprintHeading": "Preprints",
   "items": [
     {
+      "category": "preprint",
+      "title": "PAIR: Bringing Household Robots into the Smart Home",
+      "year": 2023,
+      "showEqualContributionNote": false,
+      "authors": [
+        {
+          "name": "Junseong Pyo",
+          "owner": true,
+          "equalContribution": false
+        },
+        {
+          "name": "Hyeongjin Kim",
+          "owner": false,
+          "equalContribution": false
+        },
+        {
+          "name": "Jongwook Han",
+          "owner": false,
+          "equalContribution": false
+        },
+        {
+          "name": "Seungwon Kook",
+          "owner": false,
+          "equalContribution": false
+        },
+        {
+          "name": "Sungjib Lim",
+          "owner": false,
+          "equalContribution": false
+        },
+        {
+          "name": "Yohan Jo",
+          "owner": false,
+          "equalContribution": false
+        }
+      ],
+      "tags": [
+        "Smart Home",
+        "Benchmark"
+      ]
+    },
+    {
       "category": "international",
       "title": "SpokenUS: A Spoken User Simulator for Task-Oriented Dialogue",
       "venueAbbreviation": "EMNLP",
@@ -198,48 +240,6 @@
           "label": "DBpia",
           "url": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12131510"
         }
-      ]
-    },
-    {
-      "category": "preprint",
-      "title": "PAIR: Bringing Household Robots into the Smart Home",
-      "year": 2023,
-      "showEqualContributionNote": false,
-      "authors": [
-        {
-          "name": "Junseong Pyo",
-          "owner": true,
-          "equalContribution": false
-        },
-        {
-          "name": "Hyeongjin Kim",
-          "owner": false,
-          "equalContribution": false
-        },
-        {
-          "name": "Jongwook Han",
-          "owner": false,
-          "equalContribution": false
-        },
-        {
-          "name": "Seungwon Kook",
-          "owner": false,
-          "equalContribution": false
-        },
-        {
-          "name": "Sungjib Lim",
-          "owner": false,
-          "equalContribution": false
-        },
-        {
-          "name": "Yohan Jo",
-          "owner": false,
-          "equalContribution": false
-        }
-      ],
-      "tags": [
-        "Smart Home",
-        "Benchmark"
       ]
     }
   ]
