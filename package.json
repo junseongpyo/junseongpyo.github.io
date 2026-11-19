@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "build": "eleventy",
-    "dev": "eleventy --serve --port=8080",
-    "test": "node --test"
+    "dev": "eleventy --serve --port=8080"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

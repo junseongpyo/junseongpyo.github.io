@@ -10,7 +10,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("docs/**");
   eleventyConfig.ignores.add("node_modules/**");
-  eleventyConfig.ignores.add("tests/**");
 
   eleventyConfig.addFilter("tagColorClass", (tag = "") => {
     const paletteSize = 8;
@@ -25,6 +24,10 @@ module.exports = function (eleventyConfig) {
   // absolute so they also resolve from /ko/.
   eleventyConfig.addFilter("rootPath", (src = "") =>
     /^(?:[a-z]+:)?\/\//i.test(src) || src.startsWith("/") ? src : `/${src}`,
+  );
+
+  eleventyConfig.addFilter("byCategory", (items = [], category = "") =>
+    items.filter((item) => item.category === category),
   );
 
   eleventyConfig.addFilter("sortByYearDesc", (items = []) =>

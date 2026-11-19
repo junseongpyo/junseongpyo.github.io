@@ -134,6 +134,10 @@ content:
         label: Domestic heading
         type: string
         required: true
+      - name: preprintHeading
+        label: Preprint heading
+        type: string
+        required: true
       - name: items
         label: Publications
         type: object
@@ -148,7 +152,7 @@ content:
             type: select
             required: true
             options:
-              values: [international, domestic]
+              values: [international, domestic, preprint]
           - name: title
             label: Title
             type: text
