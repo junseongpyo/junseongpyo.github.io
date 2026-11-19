@@ -212,6 +212,7 @@ content:
             required: true
             options:
               multiple: true
+              creatable: true
               values:
                 - Smart Home
                 - Speech
