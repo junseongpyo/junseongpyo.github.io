@@ -521,14 +521,31 @@ content:
     fields: *about_fields
 
   - name: publications_ko
-    label: "[한국어] 논문"
+    label: "[한국어] 논문 섹션 제목"
+    description: "논문 목록은 영어 페이지의 Publications를 그대로 사용합니다."
     type: file
     path: _data/ko/publications.json
     format: json
     operations:
       create: false
       delete: false
-    fields: *publications_fields
+    fields:
+      - name: heading
+        label: Section name
+        type: string
+        required: true
+      - name: internationalHeading
+        label: International heading
+        type: string
+        required: true
+      - name: domesticHeading
+        label: Domestic heading
+        type: string
+        required: true
+      - name: preprintHeading
+        label: Preprint heading
+        type: string
+        required: true
 
   - name: research_ko
     label: "[한국어] 연구 경력 및 학력"
