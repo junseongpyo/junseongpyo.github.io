@@ -46,7 +46,14 @@
         "Robotics",
         "Dataset",
         "Benchmark"
-      ]
+      ],
+      "links": [
+        {
+          "label": "ArXiv",
+          "url": "https://arxiv.org/abs/2611.23070v1"
+        }
+      ],
+      "figure": "/figures/pair.png"
     },
     {
       "category": "international",
