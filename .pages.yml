@@ -208,18 +208,10 @@ content:
                 default: false
           - name: tags
             label: Tags
-            type: select
+            description: "Existing: Smart Home, Speech, Benchmark, Model, Dataset, Education. Type any new tag."
+            type: string
             required: true
-            options:
-              multiple: true
-              creatable: true
-              values:
-                - Smart Home
-                - Speech
-                - Benchmark
-                - Model
-                - Dataset
-                - Education
+            list: true
           - name: links
             label: Links
             type: object
